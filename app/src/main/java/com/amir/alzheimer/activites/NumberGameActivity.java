@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.amir.alzheimer.R;
 import com.amir.alzheimer.base.BaseActivity;
+import com.amir.alzheimer.infrastructure.Algorithm;
 
 import java.util.Arrays;
 
@@ -41,17 +42,21 @@ public class NumberGameActivity extends BaseActivity implements View.OnClickList
         if (id == R.id.activity_number_game_continue_done) {
 
             LinearLayout resultContainer = findViewById(R.id.activity_number_game_result_container);
+            int hit = 0;
             for (int i = 0; i < resultContainer.getChildCount(); i++) {
                 TextView textView = (TextView) resultContainer.getChildAt(i);
                 textView.setTextColor(getResources().getColor(R.color.white));
                 int val = Integer.parseInt(textView.getText().toString());
                 if (!hasValue(numbers, val)) {
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
+                    hit++;
                 } else {
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
 
                 }
             }
+
+            Algorithm.NumberGameHitCount(hit, resultContainer.getChildCount() - hit);
         } else if (id == R.id.activity_number_game_continue_button) {
             findViewById(R.id.activity_number_game_first_layout).setVisibility(View.GONE);
             findViewById(R.id.activity_number_game_second_layout).setVisibility(View.VISIBLE);
