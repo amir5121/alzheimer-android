@@ -5,8 +5,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> -->
     <application
         android:name=".base.AlzheimerApplication"
         android:allowBackup="true"
@@ -29,13 +29,14 @@
         <activity
             android:name=".activites.NumberGameActivity"
             android:label="@string/title_activity_number_game"
-            android:screenOrientation="landscape"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activites.SquareMatchActivity"
             android:label="@string/title_activity_square_match"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme" />
+        <activity android:name=".androidpuzzlegame.MainActivityPuzzle" />
+        <activity android:name=".androidpuzzlegame.PuzzleActivity" />
     </application>
 
 </manifest>

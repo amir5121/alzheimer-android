@@ -1,6 +1,7 @@
 package com.amir.alzheimer.activites;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,8 @@ public class SquareMatchActivity extends BaseActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_square_match);
+
+
         first = findViewById(R.id.activity_square_match_first);
         second = findViewById(R.id.activity_square_match_second);
         scoreText = findViewById(R.id.activity_square_match_score);
@@ -31,6 +34,7 @@ public class SquareMatchActivity extends BaseActivity implements View.OnClickLis
 
         findViewById(R.id.activity_square_match_match_button).setOnClickListener(this);
         findViewById(R.id.activity_square_match_miss_button).setOnClickListener(this);
+        Log.wtf(TAG, "width: " + displayWidth + " height " + displayHeight);
 
     }
 
@@ -51,13 +55,14 @@ public class SquareMatchActivity extends BaseActivity implements View.OnClickLis
     }
 
     private void apply(GridLayout grid, Integer[][] matrix) {
+        int smallest = (int) ((displayWidth < displayHeight ? displayWidth : displayHeight) / 2.3);
         grid.removeAllViews();
         grid.setColumnCount(matrix[0].length);
         for (int i = 0; i < matrix[0].length * matrix[0].length; i++) {
             View view = new View(this);
             if (matrix[i / matrix[0].length][i % matrix[0].length] == 1)
                 view.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-            view.setLayoutParams(new ViewGroup.LayoutParams(500 / matrix[0].length, 500 / matrix[0].length));
+            view.setLayoutParams(new ViewGroup.LayoutParams(smallest / matrix[0].length, smallest / matrix[0].length));
             grid.addView(view);
         }
     }

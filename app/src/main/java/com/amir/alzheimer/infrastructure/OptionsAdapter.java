@@ -14,12 +14,12 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> impl
 
     private static final String TAG = "OptionsAdapter";
     public static final int[] IMAGES = {
-            R.drawable.ic_audiotrack,
-            R.drawable.ic_directions,
-            R.drawable.ic_edit,
-            R.drawable.ic_face,
-            R.drawable.ic_filter,
-            R.drawable.ic_flash
+            R.mipmap.ic_doc,
+            R.mipmap.ic_mind,
+            R.mipmap.ic_set,
+            R.mipmap.ic_note,
+            R.mipmap.ic_med,
+            R.mipmap.ic_rem
     };
 
     private final int itemSize;

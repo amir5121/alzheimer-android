@@ -12,6 +12,7 @@ public class AlzheimerApplication extends Application {
     public void onCreate() {
         super.onCreate();
         database = new Database(this);
+
     }
 
     public Database getDatabase() {

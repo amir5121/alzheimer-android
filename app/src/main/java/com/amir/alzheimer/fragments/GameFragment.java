@@ -16,6 +16,8 @@ import com.amir.alzheimer.R;
 import com.amir.alzheimer.activites.MainActivity;
 import com.amir.alzheimer.activites.NumberGameActivity;
 import com.amir.alzheimer.activites.SquareMatchActivity;
+import com.amir.alzheimer.androidpuzzlegame.MainActivityPuzzle;
+import com.amir.alzheimer.androidpuzzlegame.PuzzleActivity;
 import com.amir.alzheimer.base.BaseFragment;
 
 public class GameFragment extends BaseFragment implements AdapterView.OnItemClickListener {
@@ -38,7 +40,9 @@ public class GameFragment extends BaseFragment implements AdapterView.OnItemClic
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         switch (i) {
             case 0:
-                ((MainActivity) getActivity()).updateFragment(new PuzzleFragment());
+                getActivity().startActivity(new Intent(getContext(), MainActivityPuzzle.class));
+
+//                ((MainActivity) getActivity()).updateFragment(new PuzzleFragment());
                 break;
             case 1:
                 getActivity().startActivity(new Intent(getContext(), NumberGameActivity.class));

@@ -143,29 +143,30 @@ public class MainActivity extends BaseActivity implements AlzheimerItemCallback,
 
         switch (item) {
 
-            case R.drawable.ic_audiotrack:
+            case R.mipmap.ic_doc:
                 break;
-            case R.drawable.ic_directions:
+            case R.mipmap.ic_mind:
                 animateExpanding = false;
                 lastFragment = new GameFragment();
-//                getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .add(R.id.activity_main_fragment_container, lastFragment, PUZZLE_FRAGMENT)
-//                        .commit();
+                update_main_view_size(true);
+
                 break;
-            case R.drawable.ic_edit:
+            case R.mipmap.ic_set:
                 animateExpanding = true;
                 lastFragment = new SettingsFragment();
+                update_main_view_size(true);
+
 
                 break;
-            case R.drawable.ic_face:
+            case R.mipmap.ic_note:
                 animateExpanding = true;
                 lastFragment = new GalleryFragment();
+                update_main_view_size(true);
 
                 break;
-            case R.drawable.ic_filter:
+            case R.mipmap.ic_med:
                 break;
-            case R.drawable.ic_flash:
+            case R.mipmap.ic_rem:
                 break;
         }
 
@@ -187,24 +188,40 @@ public class MainActivity extends BaseActivity implements AlzheimerItemCallback,
         if (itemId == R.id.activity_main_expand) {
             boolean expanded = recyclerViewTop.getVisibility() == View.VISIBLE;
 
-            if (animateExpanding)
-                if (expanded) {
-                    Utils.collapse(recyclerViewTop, expandButton, null);
-                    Utils.collapse(recyclerViewBottom, expandButton, null);
-                } else {
-                    Utils.expand(recyclerViewTop, expandButton, listHeight);
-                    Utils.expand(recyclerViewBottom, expandButton, listHeight);
-                }
-            else {
-                if (expanded) {
-                    recyclerViewTop.setVisibility(View.GONE);
-                    recyclerViewBottom.setVisibility(View.GONE);
-                } else {
-                    recyclerViewTop.setVisibility(View.VISIBLE);
-                    recyclerViewBottom.setVisibility(View.VISIBLE);
-                }
-            }
+            update_main_view_size(expanded);
 
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        boolean expanded = recyclerViewTop.getVisibility() != View.VISIBLE;
+
+        if (expanded) {
+            update_main_view_size(false);
+        } else {
+            super.onBackPressed();
+        }
+
+    }
+
+    private void update_main_view_size(boolean expanded) {
+        if (animateExpanding)
+            if (expanded) {
+                Utils.collapse(recyclerViewTop, expandButton, null);
+                Utils.collapse(recyclerViewBottom, expandButton, null);
+            } else {
+                Utils.expand(recyclerViewTop, expandButton, listHeight);
+                Utils.expand(recyclerViewBottom, expandButton, listHeight);
+            }
+        else {
+            if (expanded) {
+                recyclerViewTop.setVisibility(View.GONE);
+                recyclerViewBottom.setVisibility(View.GONE);
+            } else {
+                recyclerViewTop.setVisibility(View.VISIBLE);
+                recyclerViewBottom.setVisibility(View.VISIBLE);
+            }
         }
     }
 

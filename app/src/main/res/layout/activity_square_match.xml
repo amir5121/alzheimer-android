@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <LinearLayout
+        android:id="@+id/container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -56,18 +56,17 @@
 
     <com.amir.alzheimer.infrastructure.AlzhimerTextView
         android:id="@+id/hint"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/activity_square_match_score"
-        android:layout_alignRight="@id/activity_square_match_score"
-        android:layout_margin="15dp"
+        android:layout_margin="8dp"
+        android:layout_toStartOf="@id/container"
+        android:layout_toLeftOf="@id/container"
         android:background="@color/colorAccent"
         android:gravity="center"
         android:padding="15dp"
         android:text="Are these 2 shapes a match? they might be rotated."
         android:textColor="@color/white"
-        android:textSize="18sp"
-        tools:ignore="NotSibling" />
+        android:textSize="16sp" />
 
 
     <GridLayout
