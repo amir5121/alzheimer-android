@@ -3,7 +3,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:clickable="true"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     android:focusable="true">
+
+    <include layout="@layout/main_activity_list_tag_item" />
 
     <ImageView
         android:id="@+id/item_alzheimer_option_image_view"

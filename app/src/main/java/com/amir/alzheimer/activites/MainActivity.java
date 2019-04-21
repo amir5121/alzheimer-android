@@ -48,8 +48,8 @@ public class MainActivity extends BaseActivity implements AlzheimerItemCallback,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerViewTop = (RecyclerView) findViewById(R.id.activity_main_recycler_view_top);
-        recyclerViewBottom = (RecyclerView) findViewById(R.id.activity_main_recycler_view_bottom);
+        recyclerViewTop = findViewById(R.id.activity_main_recycler_view_top);
+        recyclerViewBottom = findViewById(R.id.activity_main_recycler_view_bottom);
 
         recyclerViewTop.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewBottom.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -126,6 +126,9 @@ public class MainActivity extends BaseActivity implements AlzheimerItemCallback,
 
                 recyclerViewBottom.addOnScrollListener(bottomScrollListener);
                 recyclerViewTop.addOnScrollListener(topScrollListener);
+
+//                recyclerViewBottom.bringToFront();
+//                recyclerViewTop.bringToFront();
 
             }
         }

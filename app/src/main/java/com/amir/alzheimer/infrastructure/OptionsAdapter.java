@@ -21,6 +21,14 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> impl
             R.mipmap.ic_med,
             R.mipmap.ic_rem
     };
+    public static final String[] TAGS = {
+            "Doctor",
+            "Brain Training",
+            "Setting",
+            "Relatives",
+            "Medicine",
+            "Reminder"
+    };
 
     private final int itemSize;
     private final AlzheimerItemCallback listener;
@@ -28,14 +36,13 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> impl
 
     public OptionsAdapter(BaseActivity activity, int itemSize, AlzheimerItemCallback listener) {
         inflater = LayoutInflater.from(activity);
-        Log.e(TAG, "OptionsAdapter: adapter was created");
         this.itemSize = itemSize;
         this.listener = listener;
     }
 
     @NonNull
     @Override
-    public OptionsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public OptionsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.item_alzheimer_option, parent, false);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(itemSize, itemSize);
         view.setLayoutParams(params);
@@ -44,9 +51,9 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> impl
     }
 
     @Override
-    public void onBindViewHolder(OptionsViewHolder holder, int position) {
-        holder.populate(IMAGES[position % IMAGES.length]);
-      }
+    public void onBindViewHolder(@NonNull OptionsViewHolder holder, int position) {
+        holder.populate(IMAGES[position % IMAGES.length], TAGS[position % IMAGES.length]);
+    }
 
     @Override
     public int getItemCount() {
