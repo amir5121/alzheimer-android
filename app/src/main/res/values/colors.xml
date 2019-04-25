@@ -7,6 +7,7 @@
     <color name="red">#ff5252</color>
     <color name="green">#33691e</color>
     <color name="white">#FFFFFF</color>
+    <color name="grey">#424242</color>
     <color name="divider">#dcdcdc</color>
     <color name="mdtp_accent_color">@color/colorPrimary</color>
     <color name="mdtp_accent_color_dark">@color/colorPrimaryDark</color>
