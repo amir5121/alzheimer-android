@@ -21,8 +21,8 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsViewHolder> impl
             R.mipmap.ic_med,
             R.mipmap.ic_rem
     };
-    public static final String[] TAGS = {
-            "Doctor",
+    private static final String[] TAGS = {
+            "دکتر",
             "Brain Training",
             "Setting",
             "Relatives",

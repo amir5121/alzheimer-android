@@ -5,9 +5,14 @@
     android:orientation="vertical">
 
 
-    <ListView
+    <GridView
         android:id="@+id/game_fragment_list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:verticalSpacing="10dp" />
 
 </RelativeLayout>

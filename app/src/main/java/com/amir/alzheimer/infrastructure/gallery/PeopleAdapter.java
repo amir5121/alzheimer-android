@@ -49,7 +49,7 @@ public class PeopleAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.people_item, parent, false);
             viewHolder = new PeopleViewHolder();
-            viewHolder.textView = (TextView) convertView.findViewById(R.id.people_item_text_view);
+            viewHolder.textView = convertView.findViewById(R.id.people_item_text_view);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (PeopleViewHolder) convertView.getTag();

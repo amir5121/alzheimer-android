@@ -1,4 +1,4 @@
-package com.amir.alzheimer.activites;
+package com.amir.alzheimer.activites.games;
 
 import android.os.Bundle;
 import android.util.DisplayMetrics;

@@ -10,8 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Add new"
-        android:textColor="@color/white"
+        android:text="@string/add_new"
         android:textSize="20sp" />
 
     <FrameLayout
@@ -22,12 +21,13 @@
     <Button
         android:id="@+id/setting_fragment_reminder_button"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:padding="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="2dp"
         android:layout_margin="5dp"
-        android:background="@color/colorPrimary"
-        android:text="Medicine reminder"
-        android:textColor="@color/white" />
+        android:background="@drawable/card_background"
+        android:text="@string/medicine_reminder" />
 
     <FrameLayout
         android:layout_width="0dp"
@@ -39,8 +39,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/relative_s_name"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
         android:visibility="gone" />
     
     <Button
@@ -49,9 +47,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@color/colorPrimary"
-        android:text="Relative"
-        android:textColor="@color/white" />
+        android:elevation="2dp"
+        android:padding="7dp"
+        android:background="@drawable/card_background"
+        android:text="@string/relative" />
 
 
     <FrameLayout
@@ -65,9 +64,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@color/colorPrimary"
-        android:text="specialist"
-        android:textColor="@color/white" />
+        android:elevation="2dp"
+        android:padding="7dp"
+        android:background="@drawable/card_background"
+        android:text="specialist"/>
 
     <FrameLayout
         android:layout_width="0dp"

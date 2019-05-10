@@ -37,4 +37,10 @@
     <string name="title_activity_square_match">SquareMatchActivity</string>
     <string name="description">Description</string>
     <string name="relatives">Relatives</string>
+    <string name="puzzle">Puzzle</string>
+    <string name="missing_number">Missing numbers</string>
+    <string name="match">Match</string>
+    <string name="medicine_reminder">Medicine reminder</string>
+    <string name="relative">Relative</string>
+    <string name="add_new">Add new</string>
 </resources>

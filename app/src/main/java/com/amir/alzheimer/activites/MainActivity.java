@@ -151,20 +151,20 @@ public class MainActivity extends BaseActivity implements AlzheimerItemCallback,
             case R.mipmap.ic_mind:
                 animateExpanding = false;
                 lastFragment = new GameFragment();
-                update_main_view_size(true);
+//                update_main_view_size(true);
 
                 break;
             case R.mipmap.ic_set:
                 animateExpanding = true;
                 lastFragment = new SettingsFragment();
-                update_main_view_size(true);
+//                update_main_view_size(true);
 
 
                 break;
             case R.mipmap.ic_note:
                 animateExpanding = true;
                 lastFragment = new GalleryFragment();
-                update_main_view_size(true);
+//                update_main_view_size(true);
 
                 break;
             case R.mipmap.ic_med:

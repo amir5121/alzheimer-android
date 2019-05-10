@@ -31,13 +31,13 @@ public class GalleryFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.slider_fragment, container, false);
-        viewPager = (ViewPager) view.findViewById(R.id.slider_fragment_viewpager);
+        viewPager = view.findViewById(R.id.slider_fragment_viewpager);
         PeopleAdapter adapter = new PeopleAdapter(getContext(), database.getAllContacts());
 
-        final ListView listView = (ListView) view.findViewById(R.id.slider_fragment_list_view);
+        final ListView listView = view.findViewById(R.id.slider_fragment_list_view);
         listView.setAdapter(adapter);
 
-        CircleIndicator indicator = (CircleIndicator) view.findViewById(R.id.indicator);
+        CircleIndicator indicator = view.findViewById(R.id.indicator);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
