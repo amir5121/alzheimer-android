@@ -62,7 +62,8 @@ public class SquareMatchActivity extends BaseActivity implements View.OnClickLis
             View view = new View(this);
             if (matrix[i / matrix[0].length][i % matrix[0].length] == 1)
                 view.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-            view.setLayoutParams(new ViewGroup.LayoutParams(smallest / matrix[0].length, smallest / matrix[0].length));
+            int size = smallest / matrix[0].length;
+            view.setLayoutParams(new ViewGroup.LayoutParams(size, size));
             grid.addView(view);
         }
     }

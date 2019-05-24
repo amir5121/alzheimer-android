@@ -1,5 +1,7 @@
 //noinspection GradleCompatible
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
@@ -42,4 +44,6 @@ dependencies {
     implementation 'me.relex:circleindicator:1.2.2@aar'
     implementation 'com.mohamadamin:persianmaterialdatetimepicker:1.2.1'
     implementation 'com.weiwangcn.betterspinner:library:1.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
 }

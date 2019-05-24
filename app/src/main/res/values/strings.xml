@@ -43,4 +43,7 @@
     <string name="medicine_reminder">Medicine reminder</string>
     <string name="relative">Relative</string>
     <string name="add_new">Add new</string>
+    <string name="one_to_fifthy">One to fifthy</string>
+    <string name="next_level">Next Level</string>
+    <string name="level">Level:</string>
 </resources>

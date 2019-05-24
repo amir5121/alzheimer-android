@@ -16,6 +16,7 @@ import android.widget.ListAdapter;
 
 import com.amir.alzheimer.R;
 import com.amir.alzheimer.activites.games.NumberGameActivity;
+import com.amir.alzheimer.activites.games.OneToFifty;
 import com.amir.alzheimer.activites.games.SquareMatchActivity;
 import com.amir.alzheimer.androidpuzzlegame.MainActivityPuzzle;
 import com.amir.alzheimer.base.BaseFragment;
@@ -37,7 +38,8 @@ public class GameFragment extends BaseFragment implements AdapterView.OnItemClic
                     Arrays.asList(
                             context.getString(R.string.puzzle),
                             context.getString(R.string.missing_number),
-                            context.getString(R.string.match)
+                            context.getString(R.string.match),
+                            context.getString(R.string.one_to_fifthy)
                     ));
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(this);
@@ -59,6 +61,9 @@ public class GameFragment extends BaseFragment implements AdapterView.OnItemClic
                     break;
                 case 2:
                     activity.startActivity(new Intent(getContext(), SquareMatchActivity.class));
+                    break;
+                case 3:
+                    activity.startActivity(new Intent(getContext(), OneToFifty.class));
                     break;
             }
         }
