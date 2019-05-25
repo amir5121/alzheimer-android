@@ -14,7 +14,7 @@ public class TouchListener implements View.OnTouchListener {
     private float yDelta;
     private PuzzleActivity activity;
 
-    public TouchListener(PuzzleActivity activity) {
+    TouchListener(PuzzleActivity activity) {
         this.activity = activity;
     }
 
@@ -58,7 +58,7 @@ public class TouchListener implements View.OnTouchListener {
         return true;
     }
 
-    public void sendViewToBack(final View child) {
+    private void sendViewToBack(final View child) {
         final ViewGroup parent = (ViewGroup)child.getParent();
         if (null != parent) {
             parent.removeView(child);

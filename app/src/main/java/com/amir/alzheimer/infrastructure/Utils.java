@@ -50,7 +50,7 @@ public final class Utils {
 
         // 1dp/ms
 //        a.setDuration((int)(targetHeight / v.getContext().getResources().getDisplayMetrics().density));
-        a.setDuration(Constants.ANIMATION_DURATION - 100);
+        a.setDuration(Constants.INSTANCE.getANIMATION_DURATION() - 100);
 
         a.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -97,7 +97,7 @@ public final class Utils {
 
         // 1dp/ms
 //        a.setDuration((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density));
-        a.setDuration(Constants.ANIMATION_DURATION - 100);
+        a.setDuration(Constants.INSTANCE.getANIMATION_DURATION() - 100);
         a.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {

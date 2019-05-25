@@ -22,7 +22,7 @@ public class ImageAdapter extends BaseAdapter {
     private AssetManager am;
     private String[] files;
 
-    public ImageAdapter(Context c) {
+    ImageAdapter(Context c) {
         mContext = c;
         am = mContext.getAssets();
         try {

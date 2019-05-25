@@ -46,4 +46,7 @@
     <string name="one_to_fifthy">One to fifthy</string>
     <string name="next_level">Next Level</string>
     <string name="level">Level:</string>
+    <string name="find_the_missing_number_memorise_them_and_hit_solve_numbers_are_from_1_to_12">Find the missing number, memorise them and hit solve! Numbers are from 1 to 12</string>
+    <string name="score">Score</string>
+    <string name="solve">Solve!</string>
 </resources>
