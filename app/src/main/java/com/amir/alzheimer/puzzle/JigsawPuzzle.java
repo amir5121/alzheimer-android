@@ -10,14 +10,14 @@ import com.amir.alzheimer.R;
 
 public class JigsawPuzzle {
 
-    protected static int puzzleXDimension;
-    protected static int puzzleYDimension;
+    private static int puzzleXDimension;
+    private static int puzzleYDimension;
 
-    protected static int puzzlePieceHeight;
-    protected static int puzzlePieceWidth;
+    private static int puzzlePieceHeight;
+    private static int puzzlePieceWidth;
 
-    protected static int puzzleGridX;
-    protected static int puzzleGridY;
+    private static int puzzleGridX;
+    private static int puzzleGridY;
 
     private boolean backgroundTextureOn = true;
     private Bitmap backgroundTexture;
@@ -58,7 +58,7 @@ public class JigsawPuzzle {
         loadPuzzleConfiguration();
     }
 
-    public void loadPuzzleResources (Resources res, int resourceId, long targetWidth, long targetHeight) {
+    private void loadPuzzleResources(Resources res, int resourceId, long targetWidth, long targetHeight) {
 
         backgroundTexture = decodePuzzleBitmapFromResource(res, R.drawable.background, 800, 800);
 
@@ -80,7 +80,7 @@ public class JigsawPuzzle {
      *
      *  Bitmap Loading Code from Android Developer lesson: "Loading Large Bitmaps Efficiently"
      */
-    public static Bitmap decodePuzzleBitmapFromResource (
+    private static Bitmap decodePuzzleBitmapFromResource(
             Resources res, int resId, long targetWidth, long targetHeight) {
 
         // Load only the dimensions of the puzzle image

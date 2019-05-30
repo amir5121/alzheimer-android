@@ -1,6 +1,7 @@
 package com.amir.alzheimer.activites
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -91,9 +92,10 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
         super.onWindowFocusChanged(hasFocus)
 
         if (width == 0) {
-            width = findViewById<View>(R.id.activity_main_fragment_container).width
+            width = activity_main_fragment_container.width
 
             if (width != 0) {
+
                 val adapter = OptionsAdapter(this, width / 3, this)
 
                 activity_main_recycler_view_bottom.adapter = adapter
@@ -124,6 +126,8 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
         when (item) {
 
             R.mipmap.ic_doc -> {
+                val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "09178947604"))
+                startActivity(intent)
             }
             R.mipmap.ic_mind -> {
                 animateExpanding = false
@@ -141,9 +145,7 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
             }
             R.mipmap.ic_rem -> {
             }
-        }//                updateMainViewSize(true);
-        //                updateMainViewSize(true);
-        //                updateMainViewSize(true);
+        }
 
         lastFragment?.let { updateFragment(it) }
     }
@@ -209,8 +211,8 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
         }
 
         (lastFragment as SettingsFragment).relativesWasAdded()
-        //list of videos of seleced
-        //        List<String> vides = (List<String>) data.getSerializableExtra(GalleryActivity.VIDEO);
+        //list of videos of selected
+        //        List<String> videos = (List<String>) data.getSerializableExtra(GalleryActivity.VIDEO);
     }
 
     companion object {

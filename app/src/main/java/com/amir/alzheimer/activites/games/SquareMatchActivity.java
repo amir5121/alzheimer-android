@@ -34,7 +34,7 @@ public class SquareMatchActivity extends BaseActivity implements View.OnClickLis
 
         findViewById(R.id.activity_square_match_match_button).setOnClickListener(this);
         findViewById(R.id.activity_square_match_miss_button).setOnClickListener(this);
-        Log.wtf(TAG, "width: " + displayWidth + " height " + displayHeight);
+        Log.wtf(TAG, "width: " + getDisplayWidth() + " height " + getDisplayHeight());
 
     }
 
@@ -55,7 +55,7 @@ public class SquareMatchActivity extends BaseActivity implements View.OnClickLis
     }
 
     private void apply(GridLayout grid, Integer[][] matrix) {
-        int smallest = (int) ((displayWidth < displayHeight ? displayWidth : displayHeight) / 2.3);
+        int smallest = (int) ((getDisplayWidth() < getDisplayHeight() ? getDisplayWidth() : getDisplayHeight()) / 2.3);
         grid.removeAllViews();
         grid.setColumnCount(matrix[0].length);
         for (int i = 0; i < matrix[0].length * matrix[0].length; i++) {

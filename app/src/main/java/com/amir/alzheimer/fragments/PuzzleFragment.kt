@@ -12,7 +12,7 @@ import com.amir.alzheimer.puzzle.JigsawPuzzle
 import com.amir.alzheimer.puzzle.PuzzleCompactSurface
 
 class PuzzleFragment : BaseFragment() {
-    private var puzzleSurface: PuzzleCompactSurface? = null
+    private lateinit var puzzleSurface: PuzzleCompactSurface
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -20,19 +20,19 @@ class PuzzleFragment : BaseFragment() {
 
         puzzleSurface = PuzzleCompactSurface(context)
         val jigsawPuzzle = JigsawPuzzle(context, config)
-        puzzleSurface!!.setPuzzle(jigsawPuzzle)
+        puzzleSurface.setPuzzle(jigsawPuzzle)
 
         return puzzleSurface
     }
 
     override fun onPause() {
         super.onPause()
-        puzzleSurface!!.thread.pause()
+        puzzleSurface.thread.pause()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        puzzleSurface!!.thread.saveState(outState)
+        puzzleSurface.thread.saveState(outState)
     }
 
     companion object {

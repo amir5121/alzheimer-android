@@ -3,11 +3,10 @@ package com.amir.alzheimer.infrastructure
 
 import android.content.Context
 import android.graphics.Typeface
-import android.support.v7.widget.AppCompatTextView
+import android.support.v7.widget.AppCompatButton
 import android.util.AttributeSet
-import android.widget.TextView
 
-class AlzhimerTextView : AppCompatTextView {
+class AlzhimerButton : AppCompatButton{
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)

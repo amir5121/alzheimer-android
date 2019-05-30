@@ -101,12 +101,12 @@ public class NumberGameActivity extends BaseActivity implements View.OnClickList
                 if (hitCount >= toFind.length) {
                     solving = false;
                     updateNumber(4);
-                    ((TextView) findViewById(R.id.activity_number_game_hint)).setText("Find the missing number, memorise them and hit solve! Numbers are from 1 to 20");
+                    ((TextView) findViewById(R.id.activity_number_game_hint)).setText(getResources().getText(R.string.to_20));
                     update_grid();
                     hitCount = 0;
-                    actionButton.setText("Solve!");
+                    actionButton.setText(getResources().getText(R.string.solve));
                 } else {
-                    Toast.makeText(application, "There are " + Math.abs(hitCount - toFind.length) + " remaining!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(), "There are " + Math.abs(hitCount - toFind.length) + " remaining!", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 int[] array1and2 = new int[numbers.length + toFind.length];
@@ -132,7 +132,7 @@ public class NumberGameActivity extends BaseActivity implements View.OnClickList
                             hitCount++;
                         }
                         if (hitCount >= toFind.length) {
-                            actionButton.setText("Next!");
+                            actionButton.setText(getResources().getText(R.string.next));
                         }
                     } else {
                         view.setBackgroundColor(getResources().getColor(R.color.red));

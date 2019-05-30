@@ -10,6 +10,14 @@ import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
 
 class OptionsAdapter(activity: BaseActivity, private val itemSize: Int, private val listener: AlzheimerItemCallback) : RecyclerView.Adapter<OptionsViewHolder>(), View.OnClickListener {
+    private val tags: Array<String> = arrayOf(activity.getString(R.string.doctor),
+            activity.getString(R.string.brain),
+            activity.getString(R.string.settings),
+            activity.getString(R.string.relatives),
+            activity.getString(R.string.medicines),
+            activity.getString(R.string.reminders)
+    )
+
     private val inflater: LayoutInflater = LayoutInflater.from(activity)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionsViewHolder {
@@ -21,7 +29,7 @@ class OptionsAdapter(activity: BaseActivity, private val itemSize: Int, private 
     }
 
     override fun onBindViewHolder(holder: OptionsViewHolder, position: Int) {
-        holder.populate(IMAGES[position % IMAGES.size], TAGS[position % IMAGES.size])
+        holder.populate(IMAGES[position % IMAGES.size], tags[position % IMAGES.size])
     }
 
     override fun getItemCount(): Int {
@@ -37,6 +45,5 @@ class OptionsAdapter(activity: BaseActivity, private val itemSize: Int, private 
 
         private val TAG = "OptionsAdapter"
         val IMAGES = intArrayOf(R.mipmap.ic_doc, R.mipmap.ic_mind, R.mipmap.ic_set, R.mipmap.ic_note, R.mipmap.ic_med, R.mipmap.ic_rem)
-        private val TAGS = arrayOf("دکتر", "Brain Training", "Setting", "Relatives", "Medicine", "Reminder")
     }
 }

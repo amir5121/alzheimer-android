@@ -18,7 +18,7 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
     private val hardnesses: IntArray = intArrayOf(18, 32, 50, 72, 98)
     private var hardnessLevel: Int = 0
     private var count: Int = hardnesses[hardnessLevel] * 5
-    private var secondHalf: MutableList<Int> = ArrayList()
+    private lateinit var secondHalf: MutableList<Int>
     private val timer = Timer()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,10 +45,11 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
         val smallest = if (displayHeight < displayWidth) displayHeight else displayWidth
 
         activity_one_to_fifty_grid.removeAllViews()
-        val firstHalf: IntArray = (1..hardnesses[hardnessLevel] / 2).toList().shuffled().toIntArray()
-        secondHalf = (hardnesses[hardnessLevel] / 2 + 1..hardnesses[hardnessLevel]).toList().shuffled().toMutableList()
+        val mid = hardnesses[hardnessLevel] / 2
+        val firstHalf: Iterable<Int> = (1..mid).shuffled()
+        secondHalf = (mid + 1..hardnesses[hardnessLevel]).shuffled().toMutableList()
 
-        val itemCountIntRow = Math.sqrt((firstHalf.size).toDouble())
+        val itemCountIntRow = Math.sqrt(mid.toDouble())
         activity_one_to_fifty_grid.columnCount = itemCountIntRow.toInt()
         val width = ((smallest - (activity_one_to_fifty_grid.layoutParams as RelativeLayout.LayoutParams).topMargin * 2) / itemCountIntRow).toInt()
 

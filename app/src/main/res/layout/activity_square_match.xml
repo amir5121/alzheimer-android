@@ -22,11 +22,11 @@
             android:background="@color/colorPrimaryDark"
             android:gravity="center"
             android:padding="25dp"
-            android:text="0"
+            android:text="@string/zero"
             android:textColor="@color/white"
             android:textSize="32sp" />
 
-        <Button
+        <com.amir.alzheimer.infrastructure.AlzhimerButton
             android:id="@+id/activity_square_match_match_button"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
@@ -36,10 +36,10 @@
             android:background="@color/green"
             android:elevation="3dp"
             android:padding="15dp"
-            android:text="match"
+            android:text="@string/match"
             android:textColor="@color/white" />
 
-        <Button
+        <com.amir.alzheimer.infrastructure.AlzhimerButton
             android:id="@+id/activity_square_match_miss_button"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
             android:background="@color/red"
             android:elevation="3dp"
             android:padding="15dp"
-            android:text="Not match"
+            android:text="@string/not_match"
             android:textColor="@color/white" />
 
     </LinearLayout>
@@ -64,7 +64,7 @@
         android:background="@color/colorAccent"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Are these 2 shapes a match? they might be rotated."
+        android:text="@string/are_these_2_shapes_a_match_they_might_be_rotated"
         android:textColor="@color/white"
         android:textSize="16sp" />
 

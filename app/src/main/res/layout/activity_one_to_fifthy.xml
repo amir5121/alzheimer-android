@@ -1,77 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/level"
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/level"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:padding="7dp">
+
+
+        <com.amir.alzheimer.infrastructure.AlzhimerTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/level"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <com.amir.alzheimer.infrastructure.AlzhimerTextView
+            android:id="@+id/activity_number_game_text_level"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="@color/colorPrimary"
-            android:orientation="horizontal"
-            android:padding="15dp">
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="23sp" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
 
-            <com.amir.alzheimer.infrastructure.AlzhimerTextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/level"
-                android:textColor="@color/white"
-                android:textSize="23sp" />
-
-            <com.amir.alzheimer.infrastructure.AlzhimerTextView
-                android:id="@+id/activity_number_game_text_level"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="27sp" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-        </LinearLayout>
+        <com.amir.alzheimer.infrastructure.AlzhimerTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/score"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
 
         <com.amir.alzheimer.infrastructure.AlzhimerTextView
             android:id="@+id/activity_one_to_fifty_text_view_timer"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/level"
-            android:layout_margin="15dp"
-            android:background="@color/colorPrimaryDark"
-            android:gravity="center"
-            android:padding="15dp"
+            android:layout_weight="1"
             android:textColor="@color/white"
-            android:textSize="50sp" />
-
-        <GridLayout
-            android:id="@+id/activity_one_to_fifty_grid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/activity_one_to_fifty_text_view_timer"
-            android:layout_margin="15dp" />
-
-        <Button
-            android:id="@+id/activity_number_game_button_next_level"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="15dp"
-            android:padding="25dp"
-            android:text="@string/next_level"
-            android:textSize="17sp" />
+            android:textSize="23sp" />
 
 
-    </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <GridLayout
+        android:id="@+id/activity_one_to_fifty_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/level"
+        android:layout_margin="15dp" />
+
+    <com.amir.alzheimer.infrastructure.AlzhimerButton
+        android:id="@+id/activity_number_game_button_next_level"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:padding="25dp"
+        android:text="@string/next_level"
+        android:textSize="17sp" />
+
+
+</RelativeLayout>
