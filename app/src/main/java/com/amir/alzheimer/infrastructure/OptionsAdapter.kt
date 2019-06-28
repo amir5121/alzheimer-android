@@ -1,10 +1,10 @@
 package com.amir.alzheimer.infrastructure
 
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
 import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity

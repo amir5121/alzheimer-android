@@ -3,11 +3,11 @@ package com.amir.alzheimer.activites
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
@@ -199,7 +199,6 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-
         //list of photos of selected
         if (data != null) {
             val photos = data.getSerializableExtra(GalleryActivity.PHOTOS) as List<*>
@@ -213,6 +212,7 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
         (lastFragment as SettingsFragment).relativesWasAdded()
         //list of videos of selected
         //        List<String> videos = (List<String>) data.getSerializableExtra(GalleryActivity.VIDEO);
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     companion object {

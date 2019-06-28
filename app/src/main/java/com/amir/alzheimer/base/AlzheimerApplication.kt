@@ -10,7 +10,7 @@ import java.util.*
 
 class AlzheimerApplication : Application() {
 
-    var database: Database? = null
+    lateinit var database: Database
 
     override fun onCreate() {
         super.onCreate()

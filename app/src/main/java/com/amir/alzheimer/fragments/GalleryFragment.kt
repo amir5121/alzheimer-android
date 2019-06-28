@@ -2,17 +2,19 @@ package com.amir.alzheimer.fragments
 
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
+import androidx.viewpager.widget.ViewPager
 
 import com.amir.alzheimer.R
+import com.amir.alzheimer.base.AlzheimerApplication
 import com.amir.alzheimer.base.BaseFragment
 import com.amir.alzheimer.infrastructure.gallery.PeopleAdapter
 import com.amir.alzheimer.infrastructure.gallery.ViewPagerAdapter
+import kotlinx.android.synthetic.main.slider_fragment.*
 
 import java.util.Timer
 import java.util.TimerTask
@@ -20,32 +22,30 @@ import java.util.TimerTask
 import me.relex.circleindicator.CircleIndicator
 
 class GalleryFragment : BaseFragment() {
-    private var viewPager: ViewPager? = null
-    private var viewPagerAdapter: ViewPagerAdapter? = null
+    private lateinit var viewPagerAdapter: ViewPagerAdapter
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.slider_fragment, container, false)
-        viewPager = view.findViewById(R.id.slider_fragment_viewpager)
-        val adapter = PeopleAdapter(context, database.allContacts)
+        val adapter = PeopleAdapter(context, application.database.allContacts)
+        slider_fragment_list_view.adapter = adapter
+        viewPagerAdapter = ViewPagerAdapter(activity)
 
-        val listView = view.findViewById<ListView>(R.id.slider_fragment_list_view)
-        listView.adapter = adapter
 
-        val indicator = view.findViewById<CircleIndicator>(R.id.indicator)
+//        val indicator = view.findViewById<CircleIndicator>(R.id.indicator)
 
-        listView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-            listView.visibility = View.GONE
-            viewPager!!.visibility = View.VISIBLE
+        slider_fragment_list_view.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            slider_fragment_list_view.visibility = View.GONE
+            slider_fragment_viewpager.visibility = View.VISIBLE
         }
 
-        viewPagerAdapter = ViewPagerAdapter(activity)
-        viewPager!!.adapter = viewPagerAdapter
+        slider_fragment_viewpager.adapter = viewPagerAdapter
 
-        indicator.setViewPager(viewPager)
+        indicator.setViewPager(slider_fragment_viewpager)
 
 
-        viewPager!!.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        slider_fragment_viewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
 
             }
@@ -58,9 +58,9 @@ class GalleryFragment : BaseFragment() {
 
                 if (i == ViewPager.SCROLL_STATE_IDLE) {
 
-                    val pageCount = viewPagerAdapter!!.ImgR.size
+                    val pageCount = viewPagerAdapter.ImgR.size
                     if (currentPage == 0) {
-                        viewPager!!.setCurrentItem(pageCount, false)
+                        slider_fragment_viewpager.setCurrentItem(pageCount, false)
                     }
                 }
             }
@@ -68,10 +68,10 @@ class GalleryFragment : BaseFragment() {
 
         val handler = Handler()
         val run = Runnable {
-            if (currentPage == viewPagerAdapter!!.ImgR.size) {
-                viewPager!!.setCurrentItem(0, false)
+            if (currentPage == viewPagerAdapter.ImgR.size) {
+                slider_fragment_viewpager.setCurrentItem(0, false)
             }
-            viewPager!!.setCurrentItem(currentPage++, true)
+            slider_fragment_viewpager.setCurrentItem(currentPage++, true)
         }
 
         val swapper = Timer()

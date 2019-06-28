@@ -2,7 +2,6 @@ package com.amir.alzheimer.infrastructure
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
@@ -13,28 +12,24 @@ import java.util.ArrayList
 
 class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VER) {
 
-    private val db: SQLiteDatabase
+//    private val db: SQLiteDatabase = writableDatabase
 
     //hp = new HashMap();
     val allContacts: ArrayList<String>
         get() {
-            val array_list = ArrayList<String>()
+            val arrayList = ArrayList<String>()
             val db = this.readableDatabase
             val res = db.rawQuery(SELECT_NAMES, null)
             res.moveToFirst()
 
             while (!res.isAfterLast) {
-                array_list.add(res.getString(res.getColumnIndex(C_NAME)))
+                arrayList.add(res.getString(res.getColumnIndex(C_NAME)))
                 res.moveToNext()
             }
 
             res.close()
-            return array_list
+            return arrayList
         }
-
-    init {
-        db = writableDatabase
-    }
 
 
     override fun onCreate(db: SQLiteDatabase) {

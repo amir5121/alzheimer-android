@@ -20,7 +20,7 @@
         android:textColor="@color/white"
         android:textSize="16sp" />
 
-    <android.support.v7.widget.GridLayout
+    <androidx.gridlayout.widget.GridLayout
         android:id="@+id/activity_number_game_grid"
         android:layout_width="match_parent"
         android:layout_height="0dp"

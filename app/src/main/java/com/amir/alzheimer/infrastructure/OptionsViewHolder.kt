@@ -1,9 +1,9 @@
 package com.amir.alzheimer.infrastructure
 
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 
 import com.amir.alzheimer.R
 import kotlinx.android.synthetic.main.item_alzheimer_option.view.*

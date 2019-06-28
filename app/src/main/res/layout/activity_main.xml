@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_main_recycler_view_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -30,7 +30,7 @@
 
     </FrameLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_main_recycler_view_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
