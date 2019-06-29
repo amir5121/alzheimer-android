@@ -9,9 +9,9 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.GridView
 import com.amir.alzheimer.R
-import com.amir.alzheimer.activites.games.NumberGameActivity
-import com.amir.alzheimer.activites.games.OneToFifty
-import com.amir.alzheimer.activites.games.SquareMatchActivity
+import com.amir.alzheimer.activities.games.NumberGameActivity
+import com.amir.alzheimer.activities.games.OneToFifty
+import com.amir.alzheimer.activities.games.SquareMatchActivity
 import com.amir.alzheimer.androidpuzzlegame.MainActivityPuzzle
 import com.amir.alzheimer.base.BaseFragment
 import java.util.*

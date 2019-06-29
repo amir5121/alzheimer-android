@@ -61,4 +61,6 @@
     <string name="are_these_2_shapes_a_match_they_might_be_rotated">Are these 2 shapes a match? they might be rotated.</string>
     <string name="to_20">Find the missing number, memorise them and hit solve! Numbers are from 1 to 20</string>
     <string name="next">Next</string>
+    <string name="fill_relative_name">Please fill the Relative\'s name</string>
+    <string name="pick_an_image">Pick an Image</string>
 </resources>

@@ -51,4 +51,6 @@
     <string name="not_match">نامطابق</string>
     <string name="submit">درح</string>
     <string name="to_20">اعداد گم شده را بیابید و آن‌ها را به خاطر بسپارید اغداد از یک تا بیست هستند</string>
+    <string name="fill_relative_name">نام را تکمیل کنید</string>
+    <string name="pick_an_image">یک عکس را انتخاب کنید</string>
 </resources>

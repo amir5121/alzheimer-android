@@ -1,20 +1,13 @@
 package com.amir.alzheimer.base
 
 import android.app.Application
-import android.content.Context
-import android.content.res.Configuration
-import android.os.Build
-
-import com.amir.alzheimer.infrastructure.Database
-import java.util.*
+import com.amir.alzheimer.infrastructure.database.AlzhimerDatabase
 
 class AlzheimerApplication : Application() {
-
-    lateinit var database: Database
-
+    var database: AlzhimerDatabase? = null
     override fun onCreate() {
         super.onCreate()
-        database = Database(this)
+        database = AlzhimerDatabase.getDatabase(this)
     }
 
 //    fun updateResources(context: Context) {

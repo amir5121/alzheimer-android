@@ -1,4 +1,4 @@
-package com.amir.alzheimer.activites.games
+package com.amir.alzheimer.activities.games
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,6 @@ import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_one_to_fifthy.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class OneToFifty : BaseActivity(), View.OnClickListener {

@@ -1,6 +1,7 @@
 package com.amir.alzheimer.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,15 +43,20 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
 
 
                 } else {
-                    val config = GalleryConfig.Build()
-                            .limitPickPhoto(3)
-                            .singlePhoto(false)
-                            .hintOfPick("this is pick hint")
-                            .filterMimeTypes(arrayOf("image/jpeg"))
-                            .build()
+                    if (setting_fragment_relative_s_name.text.isEmpty()) {
+                        setting_fragment_relative_s_name.error = getString(R.string.fill_relative_name)
+                    } else {
 
-                    GalleryActivity.openActivity(activity, Constants.IMAGE_REQUEST_CODE, config)
+                        val config = GalleryConfig.Build()
+                                .limitPickPhoto(3)
+                                .singlePhoto(false)
+//                            .hintOfPick("this is pick hint")
+                                .filterMimeTypes(arrayOf("image/jpeg", "image/png", "image/jpg"))
+                                .build()
 
+                        GalleryActivity.openActivity(activity, Constants.IMAGE_REQUEST_CODE, config)
+
+                    }
                 }
 
             }
@@ -58,17 +64,21 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
     }
 
 
-    fun relativesWasAdded() {
+    fun relativesWasAdded(imageDirectories: String) {
+        Log.e(TAG, setting_fragment_relative_s_name.text.toString())
+        Log.e(TAG, imageDirectories)
         setting_fragment_relative_s_name.visibility = View.GONE
-        val height = setting_fragment_relatives_button!!.height
-        Utils.expand(setting_fragment_reminder_button, null, height)
-        Utils.expand(setting_fragment_specialist_button, null, height)
-        Utils.expand(setting_fragment_add_new_header, null, height)
+        setting_fragment_relatives_button.let {
+            Utils.expand(setting_fragment_reminder_button, null, it.height)
+            Utils.expand(setting_fragment_specialist_button, null, it.height)
+            Utils.expand(setting_fragment_add_new_header, null, it.height)
+        }
 
     }
 
     companion object {
 
         private const val REMINDER_DIALOG_FRAGMENT = "reminder_dialog_fragment"
+        private const val TAG = "SettingsFragment"
     }
 }

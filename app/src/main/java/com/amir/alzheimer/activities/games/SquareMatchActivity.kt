@@ -1,12 +1,11 @@
-package com.amir.alzheimer.activites.games
+package com.amir.alzheimer.activities.games
 
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridLayout
-import android.widget.TextView
+import androidx.core.content.ContextCompat
 
 import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
@@ -54,7 +53,7 @@ class SquareMatchActivity : BaseActivity(), View.OnClickListener {
         for (i in 0 until matrix[0].size * matrix[0].size) {
             val view = View(this)
             if (matrix[i / matrix[0].size][i % matrix[0].size] == 1)
-                view.setBackgroundColor(resources.getColor(R.color.colorPrimary))
+                view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary))
             val size = smallest / matrix[0].size
             view.layoutParams = ViewGroup.LayoutParams(size, size)
             grid.addView(view)

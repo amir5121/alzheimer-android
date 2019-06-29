@@ -104,7 +104,7 @@ object Utils {
     fun isPersian(string: String): Boolean {
         for (i in 0 until string.length) {
             val charAsciiNum = string[i].toInt()
-            if (charAsciiNum > 1575 && charAsciiNum < 1641 || charAsciiNum == 1662 || charAsciiNum == 1711 || charAsciiNum == 1670 || charAsciiNum == 1688)
+            if (charAsciiNum in 1576..1640 || charAsciiNum == 1662 || charAsciiNum == 1711 || charAsciiNum == 1670 || charAsciiNum == 1688)
                 return true
         }
         return false
