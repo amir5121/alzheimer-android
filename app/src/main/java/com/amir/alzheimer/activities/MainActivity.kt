@@ -3,13 +3,10 @@ package com.amir.alzheimer.activities
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
 import com.amir.alzheimer.fragments.GalleryFragment
@@ -18,7 +15,6 @@ import com.amir.alzheimer.fragments.SettingsFragment
 import com.amir.alzheimer.infrastructure.AlzheimerItemCallback
 import com.amir.alzheimer.infrastructure.OptionsAdapter
 import com.amir.alzheimer.infrastructure.Utils
-import com.tangxiaolv.telegramgallery.GalleryActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener {
@@ -39,6 +35,10 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        if (application.user == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
 
 
         activity_main_recycler_view_top.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -199,26 +199,6 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        //list of photos of selected
-        if (data != null) {
-            val photos = data.getSerializableExtra(GalleryActivity.PHOTOS) as List<*>
-
-            for (dir in photos) {
-                Log.e(TAG, "onActivityResult: $dir")
-            }
-
-
-            (lastFragment as SettingsFragment).relativesWasAdded(photos.joinToString(";"))
-
-        } else {
-            Toast.makeText(this, getString(R.string.pick_an_image), Toast.LENGTH_LONG).show()
-        }
-
-        //list of videos of selected
-        //        List<String> videos = (List<String>) data.getSerializableExtra(GalleryActivity.VIDEO);
-        super.onActivityResult(requestCode, resultCode, data)
-    }
 
     companion object {
 

@@ -20,7 +20,6 @@ abstract class BaseActivity : AppCompatActivity() {
         displayWidth = displayMetrics.widthPixels
 
 
-
         val locale = Locale("fa")
         Locale.setDefault(locale)
         val config = baseContext.resources.configuration

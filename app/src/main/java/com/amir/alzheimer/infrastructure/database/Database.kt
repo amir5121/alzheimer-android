@@ -6,16 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.amir.alzheimer.infrastructure.database.relative.Relative
 import com.amir.alzheimer.infrastructure.database.relative.RelativeDao
+import com.amir.alzheimer.infrastructure.database.user.User
+import com.amir.alzheimer.infrastructure.database.user.UserDao
 
-@Database(entities = [Relative::class], version = 2)
+@Database(entities = [Relative::class, User::class], version = 3)
 abstract class AlzhimerDatabase : RoomDatabase() {
     abstract fun relativeDao(): RelativeDao
+    abstract fun userDao(): UserDao
 
     companion object {
         @Volatile
         private var INSTANCE: AlzhimerDatabase? = null
 
-        fun getDatabase(context: Context?): AlzhimerDatabase {
+        fun getDatabase(context: Context? = null): AlzhimerDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                         context!!.applicationContext,
@@ -27,10 +30,6 @@ abstract class AlzhimerDatabase : RoomDatabase() {
                 INSTANCE = instance
                 instance
             }
-        }
-
-        fun getAlzhimerDao(): RelativeDao {
-            return INSTANCE!!.relativeDao()
         }
     }
 

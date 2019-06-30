@@ -19,8 +19,8 @@ data class Relative(
 
     companion object {
 
-        fun addPerson(firstName: String, lastName: String) {
-            val person = Relative(firstName, lastName)
+        fun addRelative(name: String, images: String) {
+            val person = Relative(name, images)
 
             Single.fromCallable {
                 AlzhimerDatabase.getDatabase(null).relativeDao().insert(person)

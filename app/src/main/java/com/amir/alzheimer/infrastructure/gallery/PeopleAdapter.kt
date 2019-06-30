@@ -17,22 +17,9 @@ import io.reactivex.disposables.CompositeDisposable
 
 
 
-class PeopleAdapter(context: Context?) : BaseAdapter() {
+class PeopleAdapter(context: Context?, private var peoples: List<String>) : BaseAdapter() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var peoples: List<String> = listOf()
-    var compositeDisposable = CompositeDisposable()
 
-    init {
-        AlzhimerDatabase.getAlzhimerDao().allRelatives()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { relatives ->
-                    peoples = relatives.map { it.title }
-                    Log.wtf("Aaaa", "aaaaa")
-                    notifyDataSetChanged()
-                }.addTo(compositeDisposable)
-
-    }
 
     override fun getCount(): Int {
         return peoples.size

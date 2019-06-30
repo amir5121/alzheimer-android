@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#64B5F6"
+    android:orientation="vertical"
+    tools:context=".activities.LoginActivity"
+    tools:showIn="@layout/activity_login">
+
+    <com.amir.alzheimer.infrastructure.AlzhimerTextView
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#55FFFFFF"
+        android:padding="15dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/light_grey"
+        android:textSize="27sp"
+        android:textStyle="bold" />
+
+    <com.amir.alzheimer.infrastructure.AlzhimerButton
+        android:id="@+id/activity_login_button_login"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
+        android:background="#0D47A1"
+        android:padding="7dp"
+        android:text="@string/sign_up"
+        android:textColor="@color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/activity_login_button_login"
+        android:layout_below="@id/top"
+        android:layout_margin="15dp"
+        android:background="@color/cardview_light_background"
+        android:elevation="7dp"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:hint="@string/username"
+                android:inputType="textPhonetic">
+
+                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                    android:id="@+id/activity_login_text_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:hint="@string/password">
+
+                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                    android:id="@+id/activity_login_text_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:hint="@string/first_name">
+
+                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                    android:id="@+id/activity_login_text_first_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:hint="@string/last_name">
+
+                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                    android:id="@+id/activity_login_text_last_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:hint="@string/job_title">
+
+                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                    android:id="@+id/activity_login_text_job_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:hint="@string/education">
+
+                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                    android:id="@+id/activity_login_text_education_level"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:hint="@string/birth_year">
+
+                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                    android:id="@+id/activity_login_text_birth_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:hint="@string/child_count">
+
+                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                    android:id="@+id/activity_login_text_child_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
