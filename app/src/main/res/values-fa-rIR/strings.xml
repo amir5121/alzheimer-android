@@ -26,7 +26,7 @@
     <string name="relative_s_name">نام آشنا</string>
     <string name="relative">آشنا</string>
     <string name="puzzle">پازل</string>
-    <string name="one_to_fifthy">یک تا پنجاه</string>
+    <string name="count">بشمار</string>
     <string name="next_level">سطح بعد</string>
     <string name="missing_number">اعداد گم شده</string>
     <string name="medicine_reminder">یادآور دارو</string>
@@ -63,4 +63,8 @@
     <string name="sign_up">عضویت</string>
     <string name="this_field_can_not_be_empty">این فیلد نمی‌تواند خالی باشد</string>
     <string name="username">یوزرنیم</string>
+    <string name="title_activity_duplicate">تکرار</string>
+    <string name="duplicate">تکراری</string>
+    <string name="ready">آماده‌ام!</string>
+    <string name="memorize_these_texts">رابطه‌های زیر را به خاطر بسپارید و در صفحه‌ی بعد ان‌ها را به هم ربط دهید.</string>
 </resources>

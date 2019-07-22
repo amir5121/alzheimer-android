@@ -17,15 +17,11 @@
     <string name="Of">%1$d of %2$d</string>
     <string name="Set">Set</string>
     <string name="Album">Album</string>
-
     <string name="ClearSearch">Clear search history?</string>
     <string name="ClearButton">Clear</string>
-
     <string name="SearchImagesTitle" translatable="false">Search web</string>
     <string name="SearchGifsTitle" translatable="false">Search GIFs</string>
-
     <string name="SearchImagesInfo" translatable="false">WEB SEARCH</string>
-
     <string name="Send">Done</string>
     <string name="Cancel">Cancel</string>
     <string name="Preview">Preview</string>
@@ -42,7 +38,7 @@
     <string name="medicine_reminder">Medicine reminder</string>
     <string name="relative">Relative</string>
     <string name="add_new">Add new</string>
-    <string name="one_to_fifthy">One to fifthy</string>
+    <string name="count">Count</string>
     <string name="next_level">Next Level</string>
     <string name="level">Level:</string>
     <string name="find_the_missing_number_memorise_them_and_hit_solve_numbers_are_from_1_to_12">Find the missing number, memorise them and hit solve! Numbers are from 1 to 12</string>
@@ -74,4 +70,8 @@
     <string name="child_count">Child count</string>
     <string name="this_field_can_not_be_empty">This field can not be empty</string>
     <string name="sign_up">Sign up!</string>
+    <string name="duplicate">Duplicate</string>
+    <string name="title_activity_duplicate">Duplicate</string>
+    <string name="ready">Ready</string>
+    <string name="memorize_these_texts">Memorize these text and match them in the next page!</string>
 </resources>

@@ -13,6 +13,7 @@ import com.mohamadamin.persianmaterialdatetimepicker.time.TimePickerDialog
 import com.mohamadamin.persianmaterialdatetimepicker.utils.PersianCalendar
 import kotlinx.android.synthetic.main.reminder_dialog_fragment.*
 import kotlinx.android.synthetic.main.reminder_dialog_fragment.view.*
+import java.util.*
 
 class ReminderDialogFragment : BaseDialogFragment(), TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener, View.OnClickListener {
 
@@ -51,8 +52,8 @@ class ReminderDialogFragment : BaseDialogFragment(), TimePickerDialog.OnTimeSetL
 
         val timePickerDialog = TimePickerDialog.newInstance(
                 this,
-                persianCalendar.time.hours,
-                persianCalendar.time.minutes,
+                persianCalendar.get(Calendar.HOUR_OF_DAY),
+                persianCalendar.get(Calendar.MINUTE),
                 true
         )
 

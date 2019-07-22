@@ -8,15 +8,17 @@ import android.widget.RelativeLayout
 import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_one_to_fifthy.*
+import kotlinx.android.synthetic.main.include_score_timer.*
 import java.util.*
+import kotlin.math.sqrt
 
 
 class OneToFifty : BaseActivity(), View.OnClickListener {
     private var pauseCounter: Boolean = true
     private var lastClick: Int = 0
-    private val hardnesses: IntArray = intArrayOf(18, 32, 50, 72, 98)
+    private val hardnessLevels: IntArray = intArrayOf(18, 32, 50, 72, 98)
     private var hardnessLevel: Int = 0
-    private var count: Int = hardnesses[hardnessLevel] * 5
+    private var count: Int = hardnessLevels[hardnessLevel] * 3
     private lateinit var secondHalf: MutableList<Int>
     private val timer = Timer()
 
@@ -30,7 +32,7 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 runOnUiThread {
-                    activity_one_to_fifty_text_view_timer.text = count.toString()
+                    activity_text_view_timer.text = count.toString()
                     if (count > 0 && !pauseCounter) count--
                 }
             }
@@ -44,11 +46,11 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
         val smallest = if (displayHeight < displayWidth) displayHeight else displayWidth
 
         activity_one_to_fifty_grid.removeAllViews()
-        val mid = hardnesses[hardnessLevel] / 2
+        val mid = hardnessLevels[hardnessLevel] / 2
         val firstHalf: Iterable<Int> = (1..mid).shuffled()
-        secondHalf = (mid + 1..hardnesses[hardnessLevel]).shuffled().toMutableList()
+        secondHalf = (mid + 1..hardnessLevels[hardnessLevel]).shuffled().toMutableList()
 
-        val itemCountIntRow = Math.sqrt(mid.toDouble())
+        val itemCountIntRow = sqrt(mid.toDouble())
         activity_one_to_fifty_grid.columnCount = itemCountIntRow.toInt()
         val width = ((smallest - (activity_one_to_fifty_grid.layoutParams as RelativeLayout.LayoutParams).topMargin * 2) / itemCountIntRow).toInt()
 
@@ -64,8 +66,8 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0) {
             activity_number_game_button_next_level -> {
-                if (hardnessLevel < hardnesses.size) hardnessLevel++
-                count += hardnesses[hardnessLevel] * hardnessLevel
+                if (hardnessLevel < hardnessLevels.size) hardnessLevel++
+                count += hardnessLevels[hardnessLevel] * hardnessLevel
                 lastClick = 0
                 updateBoard()
             }
@@ -80,7 +82,7 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
                         p0.isClickable = false
                     }
 
-                    if (lastClick == hardnesses[hardnessLevel]) {
+                    if (lastClick == hardnessLevels[hardnessLevel]) {
                         pauseCounter = true
                         activity_number_game_button_next_level.visibility = View.VISIBLE
                     }
