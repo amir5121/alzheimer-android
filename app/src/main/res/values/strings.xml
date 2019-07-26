@@ -71,7 +71,16 @@
     <string name="this_field_can_not_be_empty">This field can not be empty</string>
     <string name="sign_up">Sign up!</string>
     <string name="duplicate">Duplicate</string>
-    <string name="title_activity_duplicate">Duplicate</string>
+    <string name="title_activity_word_map">Duplicate</string>
     <string name="ready">Ready</string>
     <string name="memorize_these_texts">Memorize these text and match them in the next page!</string>
+    <string name="shape_categorizing">Shape Categorizing</string>
+    <string name="important_events">Important events</string>
+    <string name="numerical_memory">Numerical  Memory</string>
+    <string name="procedural_memory">Procedural Memory</string>
+    <string name="imagination_power">Imagination Power</string>
+    <string name="memory_testing_1">First Stage Memory Testing</string>
+    <string name="memory_testing_2">Second Stage Memory Testing</string>
+    <string name="word_map">Word Map</string>
+    <string name="title_activity_duplicate" translatable="false">DuplicateActivity</string>
 </resources>

@@ -21,8 +21,8 @@
 
         <ImageView
             android:id="@+id/activity_main_expand"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_gravity="top|end"
             android:contentDescription="@string/image"
             android:scaleType="fitCenter"

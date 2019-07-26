@@ -3,6 +3,7 @@ package com.amir.alzheimer.activities
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -131,7 +132,7 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
                 startActivity(intent)
             }
             R.mipmap.ic_mind -> {
-                animateExpanding = false
+                animateExpanding = true
                 lastFragment = GameFragment()
             }
             R.mipmap.ic_set -> {
@@ -162,7 +163,6 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
         val itemId = v.id
         if (itemId == R.id.activity_main_expand) {
             val expanded = activity_main_recycler_view_top.visibility == View.VISIBLE
-
             updateMainViewSize(expanded)
 
         }
@@ -173,8 +173,15 @@ class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener
 
         if (expanded) {
             updateMainViewSize(false)
+
         } else {
-            super.onBackPressed()
+            if (lastFragment is GameFragment) {
+                if ((lastFragment as GameFragment).backPressed()) {
+                    super.onBackPressed()
+                }
+            } else {
+                super.onBackPressed()
+            }
         }
 
     }
