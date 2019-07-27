@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.amir.alzheimer.infrastructure.AlzhimerTextView
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
         android:id="@+id/setting_fragment_add_new_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,7 +13,7 @@
         android:text="@string/add_new"
         android:textSize="20sp" />
 
-    <com.amir.alzheimer.infrastructure.AlzhimerButton
+    <com.amir.alzheimer.infrastructure.views.AlzhimerButton
         android:id="@+id/setting_fragment_reminder_button"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:padding="7dp"
@@ -31,9 +31,10 @@
         android:inputType="text"
         android:layout_height="wrap_content"
         android:hint="@string/relative_s_name"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:importantForAutofill="no" />
     
-    <com.amir.alzheimer.infrastructure.AlzhimerButton
+    <com.amir.alzheimer.infrastructure.views.AlzhimerButton
         android:id="@+id/setting_fragment_relatives_button"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
@@ -45,7 +46,7 @@
         android:text="@string/relative" />
 
 
-    <com.amir.alzheimer.infrastructure.AlzhimerButton
+    <com.amir.alzheimer.infrastructure.views.AlzhimerButton
         android:id="@+id/setting_fragment_specialist_button"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"

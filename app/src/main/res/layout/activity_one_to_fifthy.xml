@@ -16,7 +16,7 @@
         android:layout_below="@id/level"
         android:layout_margin="15dp" />
 
-    <com.amir.alzheimer.infrastructure.AlzhimerButton
+    <com.amir.alzheimer.infrastructure.views.AlzhimerButton
         android:id="@+id/activity_number_game_button_next_level"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"

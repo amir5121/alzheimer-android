@@ -1,17 +1,16 @@
 package com.amir.alzheimer.activities.games
 
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.Button
-import android.widget.RelativeLayout
 import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
+import com.amir.alzheimer.infrastructure.DuplicateItem
 import com.amir.alzheimer.infrastructure.adapter.DuplicateAdapter
 import kotlinx.android.synthetic.main.activity_duplicate.*
 import kotlinx.android.synthetic.main.include_score_timer.*
-import java.lang.Math.sqrt
 import java.util.*
 
 class DuplicateActivity : BaseActivity(), View.OnClickListener, AdapterView.OnItemClickListener {
@@ -21,6 +20,7 @@ class DuplicateActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
 
     private val timer = Timer()
     private lateinit var duplicateAdapter: DuplicateAdapter
+    private var lastClickedItem: Pair<DuplicateItem, Int>? = null
     private var pauseCounter: Boolean = true
 
 
@@ -28,6 +28,7 @@ class DuplicateActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_duplicate)
         activity_duplicate_grid.onItemClickListener = this
+        activity_duplicate_button_ready.setOnClickListener(this)
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 runOnUiThread {
@@ -44,15 +45,41 @@ class DuplicateActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
     }
 
     override fun onClick(v: View?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        when (v) {
+            activity_duplicate_button_ready -> {
+                duplicateAdapter.setCoverVisibility(View.VISIBLE)
+                activity_duplicate_button_ready.visibility = View.GONE
+            }
+        }
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val clickedItem = duplicateAdapter.getItemByIndex(position)
+        if (!clickedItem.first.isFound()) {
+            clickedItem.first.visibility[clickedItem.second] = View.GONE
+            lastClickedItem?.let {
+                if (it.first.image == clickedItem.first.image) {
+                } else {
+                    Handler().postDelayed({
+                        it.first.setCoverVisible()
+                        clickedItem.first.setCoverVisible()
+                        duplicateAdapter.notifyDataSetChanged()
+
+                    }, 500)
+                }
+                lastClickedItem = null
+
+            } ?: run {
+                lastClickedItem = clickedItem
+            }
+            duplicateAdapter.notifyDataSetChanged()
+        }
+
     }
 
     companion object {
-        private const val HARDNESS = 10
+        private const val HARDNESS = 8
+        private const val TAG = "DuplicateActivity"
     }
 }
 

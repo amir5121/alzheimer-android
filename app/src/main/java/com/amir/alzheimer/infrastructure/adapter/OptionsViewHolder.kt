@@ -1,4 +1,4 @@
-package com.amir.alzheimer.infrastructure
+package com.amir.alzheimer.infrastructure.adapter
 
 import android.view.View
 import android.widget.ImageView

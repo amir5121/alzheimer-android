@@ -8,7 +8,7 @@
     tools:context=".activities.LoginActivity"
     tools:showIn="@layout/activity_login">
 
-    <com.amir.alzheimer.infrastructure.AlzhimerTextView
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
         android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         android:textSize="27sp"
         android:textStyle="bold" />
 
-    <com.amir.alzheimer.infrastructure.AlzhimerButton
+    <com.amir.alzheimer.infrastructure.views.AlzhimerButton
         android:id="@+id/activity_login_button_login"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
@@ -39,7 +39,7 @@
         android:layout_above="@id/activity_login_button_login"
         android:layout_below="@id/top"
         android:layout_margin="15dp"
-        android:background="@color/cardview_light_background"
+        android:background="@drawable/card_background"
         android:elevation="7dp"
         android:padding="15dp">
 
@@ -56,7 +56,7 @@
                 android:hint="@string/username"
                 android:inputType="textPhonetic">
 
-                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
                     android:id="@+id/activity_login_text_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:layout_weight="1"
                 android:hint="@string/password">
 
-                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
                     android:id="@+id/activity_login_text_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
                 android:layout_weight="1"
                 android:hint="@string/first_name">
 
-                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
                     android:id="@+id/activity_login_text_first_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                 android:layout_weight="1"
                 android:hint="@string/last_name">
 
-                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
                     android:id="@+id/activity_login_text_last_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
                 android:layout_weight="1"
                 android:hint="@string/job_title">
 
-                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
                     android:id="@+id/activity_login_text_job_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                 android:layout_weight="1"
                 android:hint="@string/education">
 
-                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
                     android:id="@+id/activity_login_text_education_level"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                 android:layout_weight="1"
                 android:hint="@string/birth_year">
 
-                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
                     android:id="@+id/activity_login_text_birth_year"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
                 android:layout_weight="1"
                 android:hint="@string/child_count">
 
-                <com.amir.alzheimer.infrastructure.AlzhimerInputEditField
+                <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
                     android:id="@+id/activity_login_text_child_count"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

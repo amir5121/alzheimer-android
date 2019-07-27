@@ -1,55 +1,63 @@
 package com.amir.alzheimer.infrastructure.adapter
 
 import android.content.Context
-import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ImageView
 import com.amir.alzheimer.R
+import com.amir.alzheimer.infrastructure.DuplicateItem
 import kotlinx.android.synthetic.main.duplicate_activity_image_vire.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class DuplicateAdapter(private val context: Context, private val hardness: Int) : BaseAdapter() {
-    private var mThumbIds: ArrayList<Int> = arrayListOf()
+class DuplicateAdapter(context: Context, private val hardness: Int) : BaseAdapter() {
+    private var duplicateItems: ArrayList<DuplicateItem> = arrayListOf()
     private var inflater: LayoutInflater
 
     init {
-        var listOfIndexes: ArrayList<Int> = (1..100).toList().shuffled().slice(1..hardness) as ArrayList<Int>
+        var listOfIndexes: ArrayList<Int> = (1..ALL_IMAGES_COUNT).toList().shuffled().slice(1..hardness) as ArrayList<Int>
         listOfIndexes.addAll(listOfIndexes)
         listOfIndexes = listOfIndexes.shuffled() as ArrayList<Int>
-        for (i in listOfIndexes) {
-            mThumbIds.add(context.resources.getIdentifier("duplicate_${String.format(Locale.US, "%03d", i)}", "drawable", context.packageName))
+        var firstIndex: Int
+        var secondIndex: Int
+        for (i in 1..ALL_IMAGES_COUNT) {
+            firstIndex = listOfIndexes.indexOf(i)
+            secondIndex = listOfIndexes.lastIndexOf(i)
+            if (firstIndex != -1 && secondIndex != -1) {
+                duplicateItems.add(
+                        DuplicateItem(
+                                context.resources.getIdentifier(
+                                        "duplicate_${String.format(Locale.US, "%03d", i)}", "drawable",
+                                        context.packageName),
+                                arrayOf(View.GONE, View.GONE),
+                                arrayOf(firstIndex, secondIndex)
+
+                        )
+                )
+            }
         }
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val imageView: ImageView
+        val gridItem: View = convertView
+                ?: inflater.inflate(R.layout.duplicate_activity_image_vire, parent, false)
 
-        if (convertView == null) {
-            val girdItem = inflater.inflate(R.layout.duplicate_activity_image_vire, parent, false)
-            imageView = girdItem.duplicate_activity_grid_image_item as ImageView
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                imageView.setImageDrawable(context.getDrawable(mThumbIds[position]))
-            } else {
-                @Suppress("DEPRECATION")
-                imageView.setImageDrawable(context.resources.getDrawable(mThumbIds[position]))
-            }
-        } else {
-            imageView = convertView as ImageView
-        }
-        imageView.setImageResource(mThumbIds[position])
-        return imageView
+
+        val duplicateItem = getItemByIndex(position)
+        gridItem.duplicate_activity_grid_image_item.setImageResource(duplicateItem.first.image)
+        val coverVisibility = duplicateItem.first.visibility[duplicateItem.second]
+        gridItem.duplicate_activity_grid_image_item.visibility = if (coverVisibility == View.GONE) View.VISIBLE else View.GONE
+        gridItem.duplicate_activity_grid_image_cover.visibility = coverVisibility
+        return gridItem
     }
 
     override fun getItem(position: Int): Any {
-        return mThumbIds[position]
+        return duplicateItems[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -59,6 +67,22 @@ class DuplicateAdapter(private val context: Context, private val hardness: Int) 
     override fun getCount(): Int {
         val itemsCount = hardness * 2
         return if (itemsCount > ALL_IMAGES_COUNT) ALL_IMAGES_COUNT else itemsCount
+    }
+
+    fun setCoverVisibility(visibility: Int) {
+        for (duplicateItem in duplicateItems) {
+            duplicateItem.visibility = arrayOf(visibility, visibility)
+        }
+        notifyDataSetChanged()
+    }
+
+    fun getItemByIndex(index: Int): Pair<DuplicateItem, Int> {
+        for (item in duplicateItems) {
+            val indexOf = item.index.indexOf(index)
+            if (indexOf != -1)
+                return Pair(item, indexOf)
+        }
+        return Pair(duplicateItems[0], 0)
     }
 
     companion object {

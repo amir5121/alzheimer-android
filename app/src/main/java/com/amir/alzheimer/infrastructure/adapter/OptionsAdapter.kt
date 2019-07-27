@@ -1,6 +1,5 @@
-package com.amir.alzheimer.infrastructure
+package com.amir.alzheimer.infrastructure.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
+import com.amir.alzheimer.infrastructure.AlzheimerItemCallback
 
 class OptionsAdapter(activity: BaseActivity, private val itemSize: Int, private val listener: AlzheimerItemCallback) : RecyclerView.Adapter<OptionsViewHolder>(), View.OnClickListener {
     private val tags: Array<String> = arrayOf(activity.getString(R.string.doctor),

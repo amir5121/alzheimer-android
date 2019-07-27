@@ -1,12 +1,12 @@
-package com.amir.alzheimer.infrastructure
+package com.amir.alzheimer.infrastructure.views
 
 
 import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatButton
+import com.google.android.material.textfield.TextInputEditText
 
-class AlzhimerButton : AppCompatButton {
+class AlzhimerInputEditField : TextInputEditText {
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)

@@ -8,7 +8,7 @@
     tools:context=".activities.games.NumberGameActivity">
 
 
-    <com.amir.alzheimer.infrastructure.AlzhimerTextView
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
         android:id="@+id/activity_number_game_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             android:layout_weight="2"
             android:orientation="horizontal">
 
-            <com.amir.alzheimer.infrastructure.AlzhimerTextView
+            <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -50,7 +50,7 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp" />
 
-            <com.amir.alzheimer.infrastructure.AlzhimerTextView
+            <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
                 android:id="@+id/activity_number_game_score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
 
         </LinearLayout>
 
-        <com.amir.alzheimer.infrastructure.AlzhimerButton
+        <com.amir.alzheimer.infrastructure.views.AlzhimerButton
             android:id="@+id/activity_number_game_continue_button"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
