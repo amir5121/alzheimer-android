@@ -1,13 +1,12 @@
 package com.amir.alzheimer.infrastructure.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.amir.alzheimer.R
-import com.amir.alzheimer.infrastructure.DuplicateItem
+import com.amir.alzheimer.infrastructure.dto.DuplicateItem
 import kotlinx.android.synthetic.main.duplicate_activity_image_vire.view.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -87,7 +86,7 @@ class DuplicateAdapter(context: Context, private val hardness: Int) : BaseAdapte
 
     companion object {
         private const val TAG = "DuplicateAdapter"
-        private const val ALL_IMAGES_COUNT = 100
+        private const val ALL_IMAGES_COUNT = 50
     }
 
 }

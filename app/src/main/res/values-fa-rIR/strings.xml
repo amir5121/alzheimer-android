@@ -76,4 +76,8 @@
     <string name="shape_categorizing">طبقه‌بندی اشیا و کالا</string>
     <string name="word_map">نگاشت کلمه</string>
     <string name="match_images">شکل‌های زیر را به خاطر بسپارید و هر زمان آماده بودید دکمه‌ی آماده  را بزنید و شکل‌ها را بیابید</string>
+    <string name="image_map">نگارش عکس</string>
+    <string name="sum_of_items">مجموع عکس‌ها</string>
+    <string name="try_again">دوباره تلاش کنید</string>
+    <string name="verify">بررسی</string>
 </resources>

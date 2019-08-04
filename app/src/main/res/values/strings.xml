@@ -84,4 +84,8 @@
     <string name="word_map">Word Map</string>
     <string name="title_activity_duplicate" translatable="false">DuplicateActivity</string>
     <string name="match_images">Hit start whenever you memorised the Images position and start matching them</string>
+    <string name="image_map">Image mapping</string>
+    <string name="sum_of_items">Sum of images</string>
+    <string name="verify">Verify</string>
+    <string name="try_again">Try Again</string>
 </resources>

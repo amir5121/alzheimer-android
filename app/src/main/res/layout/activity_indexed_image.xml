@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/level"
+        layout="@layout/include_score_timer" />
+
+
+    <com.amir.alzheimer.infrastructure.views.AlzhimerButton
+        android:id="@+id/activity_indexed_image_button_ready"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
+        android:background="#0D47A1"
+        android:padding="7dp"
+        android:text="@string/ready"
+        android:textColor="@color/white" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/activity_indexed_image_sum_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/activity_indexed_image_button_ready"
+        android:hint="@string/sum_of_items"
+        android:inputType="textPhonetic"
+        android:visibility="gone">
+
+        <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
+            android:id="@+id/activity_indexed_image_sum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="17sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
+        android:id="@+id/word_indexed_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/level"
+        android:layout_margin="8dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/match_images"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
+    <GridView
+        android:id="@+id/activity_indexed_image_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/activity_indexed_image_sum_container"
+        android:layout_below="@id/word_indexed_image"
+        android:layout_margin="15dp" />
+
+
+</RelativeLayout>

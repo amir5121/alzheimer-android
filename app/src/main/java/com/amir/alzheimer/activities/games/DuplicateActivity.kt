@@ -2,12 +2,11 @@ package com.amir.alzheimer.activities.games
 
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
-import com.amir.alzheimer.infrastructure.DuplicateItem
+import com.amir.alzheimer.infrastructure.dto.DuplicateItem
 import com.amir.alzheimer.infrastructure.adapter.DuplicateAdapter
 import kotlinx.android.synthetic.main.activity_duplicate.*
 import kotlinx.android.synthetic.main.include_score_timer.*

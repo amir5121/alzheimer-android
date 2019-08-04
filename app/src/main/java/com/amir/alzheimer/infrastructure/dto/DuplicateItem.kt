@@ -1,4 +1,4 @@
-package com.amir.alzheimer.infrastructure
+package com.amir.alzheimer.infrastructure.dto
 
 import android.view.View
 

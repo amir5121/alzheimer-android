@@ -17,10 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
+        <activity android:name=".activities.games.IndexedImageActivity"></activity>
         <activity
             android:name=".activities.games.DuplicateActivity"
             android:label="@string/title_activity_duplicate"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.games.WordMapActivity"
             android:label="@string/title_activity_word_map"

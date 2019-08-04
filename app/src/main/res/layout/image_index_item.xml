@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image_index_item_image"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:contentDescription="@string/image"
+        android:paddingStart="7dp"
+        android:paddingLeft="7dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="0dp"
+        android:paddingRight="0dp" />
+
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
+        android:id="@+id/image_index_item_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:background="@drawable/card_background_green"
+        android:textSize="24sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/white"
+        android:layout_below="@id/image_index_item_image"
+        android:layout_alignStart="@id/image_index_item_image"
+        android:layout_alignLeft="@id/image_index_item_image"
+        android:layout_alignEnd="@id/image_index_item_image"
+        android:layout_alignRight="@id/image_index_item_image" />
+
+
+</RelativeLayout>

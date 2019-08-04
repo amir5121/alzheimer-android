@@ -29,7 +29,8 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                     it.getString(R.string.match),
                                     it.getString(R.string.count),
                                     it.getString(R.string.word_map),
-                                    it.getString(R.string.duplicate)
+                                    it.getString(R.string.duplicate),
+                                    it.getString(R.string.image_map)
                             ),
                     it.getString(R.string.important_events) to
                             arrayListOf(),
@@ -78,6 +79,7 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                             3 -> activity.startActivity(Intent(context, OneToFifty::class.java))
                             4 -> activity.startActivity(Intent(context, WordMapActivity::class.java))
                             5 -> activity.startActivity(Intent(context, DuplicateActivity::class.java))
+                            6 -> activity.startActivity(Intent(context, IndexedImageActivity::class.java))
                         }
                 }
             }
