@@ -11,6 +11,7 @@ import com.amir.alzheimer.R
 import com.amir.alzheimer.activities.games.*
 import com.amir.alzheimer.androidpuzzlegame.MainActivityPuzzle
 import com.amir.alzheimer.base.BaseFragment
+import com.amir.alzheimer.infrastructure.adapter.DuplicateAdapter
 import kotlinx.android.synthetic.main.game_fragment.view.*
 
 class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
@@ -30,7 +31,8 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                     it.getString(R.string.count),
                                     it.getString(R.string.word_map),
                                     it.getString(R.string.duplicate),
-                                    it.getString(R.string.image_map)
+                                    it.getString(R.string.image_map),
+                                    it.getString(R.string.duplicate_text)
                             ),
                     it.getString(R.string.important_events) to
                             arrayListOf(),
@@ -78,8 +80,17 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                             2 -> activity.startActivity(Intent(context, SquareMatchActivity::class.java))
                             3 -> activity.startActivity(Intent(context, OneToFifty::class.java))
                             4 -> activity.startActivity(Intent(context, WordMapActivity::class.java))
-                            5 -> activity.startActivity(Intent(context, DuplicateActivity::class.java))
+                            5 -> {
+                                val intent = Intent(context, DuplicateActivity::class.java)
+                                intent.putExtra(DuplicateActivity.DUPLICATE_MODE, DuplicateAdapter.IMAGE)
+                                activity.startActivity(intent)
+                            }
                             6 -> activity.startActivity(Intent(context, IndexedImageActivity::class.java))
+                            7 -> {
+                                val intent = Intent(context, DuplicateActivity::class.java)
+                                intent.putExtra(DuplicateActivity.DUPLICATE_MODE, DuplicateAdapter.TEXT)
+                                activity.startActivity(intent)
+                            }
                         }
                 }
             }

@@ -38,10 +38,19 @@ class DuplicateActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
         }, 1000, 1000)
 
 
-        activity_duplicate_grid.numColumns = 4
-        duplicateAdapter = DuplicateAdapter(this, HARDNESS)
+        val hardness: Int
+        val mode = intent.getIntExtra(DUPLICATE_MODE, DuplicateAdapter.IMAGE)
+        if (mode == DuplicateAdapter.TEXT) {
+            activity_duplicate_grid.numColumns = 6
+            hardness = HARDNESS * 2 + 2
+        } else {
+            hardness = HARDNESS
+            activity_duplicate_grid.numColumns = 4
+        }
+        duplicateAdapter = DuplicateAdapter(this, hardness, mode)
         activity_duplicate_grid.adapter = duplicateAdapter
     }
+
 
     override fun onClick(v: View?) {
         when (v) {
@@ -57,8 +66,7 @@ class DuplicateActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
         if (!clickedItem.first.isFound()) {
             clickedItem.first.visibility[clickedItem.second] = View.GONE
             lastClickedItem?.let {
-                if (it.first.image == clickedItem.first.image) {
-                } else {
+                if (it.first.image != clickedItem.first.image || it.first.text != clickedItem.first.text) {
                     Handler().postDelayed({
                         it.first.setCoverVisible()
                         clickedItem.first.setCoverVisible()
@@ -79,6 +87,7 @@ class DuplicateActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
     companion object {
         private const val HARDNESS = 8
         private const val TAG = "DuplicateActivity"
+        const val DUPLICATE_MODE = "DUPLICATE_MODE"
     }
 }
 

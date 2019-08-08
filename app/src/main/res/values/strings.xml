@@ -88,4 +88,6 @@
     <string name="sum_of_items">Sum of images</string>
     <string name="verify">Verify</string>
     <string name="try_again">Try Again</string>
+    <string name="well_done">Well Done!</string>
+    <string name="duplicate_text">Duplicate Text</string>
 </resources>

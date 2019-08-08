@@ -1,6 +1,7 @@
 package com.amir.alzheimer.infrastructure.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,29 +13,39 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class DuplicateAdapter(context: Context, private val hardness: Int) : BaseAdapter() {
+class DuplicateAdapter(context: Context, private val hardness: Int, val mode: Int) : BaseAdapter() {
     private var duplicateItems: ArrayList<DuplicateItem> = arrayListOf()
     private var inflater: LayoutInflater
 
     init {
-        var listOfIndexes: ArrayList<Int> = (1..ALL_IMAGES_COUNT).toList().shuffled().slice(1..hardness) as ArrayList<Int>
-        listOfIndexes.addAll(listOfIndexes)
-        listOfIndexes = listOfIndexes.shuffled() as ArrayList<Int>
+        var initialArray = (1..ALL_IMAGES_COUNT).toList() as List<*>
+        if (mode == TEXT)
+            initialArray = listOf(
+                   "پ", "ت", "ث", "ج", "چ", "ح", "خ", "د", "ذ", "ر", "ز", "ژ", "س", "ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ک", "گ", "ل", "م", "ن", "و", "ه", "ی")
+
+        var listOfIndexes = initialArray.shuffled().slice(1..hardness)
+
+        listOfIndexes = (listOfIndexes + listOfIndexes).shuffled()
         var firstIndex: Int
         var secondIndex: Int
-        for (i in 1..ALL_IMAGES_COUNT) {
+        for (i in initialArray) {
             firstIndex = listOfIndexes.indexOf(i)
             secondIndex = listOfIndexes.lastIndexOf(i)
             if (firstIndex != -1 && secondIndex != -1) {
                 duplicateItems.add(
-                        DuplicateItem(
-                                context.resources.getIdentifier(
-                                        "duplicate_${String.format(Locale.US, "%03d", i)}", "drawable",
-                                        context.packageName),
-                                arrayOf(View.GONE, View.GONE),
-                                arrayOf(firstIndex, secondIndex)
+                        if (mode == IMAGE)
+                            DuplicateItem(
+                                    context.resources.getIdentifier(
+                                            "duplicate_${String.format(Locale.US, "%03d", i)}", "drawable",
+                                            context.packageName)
+                                    ,
+                                    arrayOf(firstIndex, secondIndex)
 
-                        )
+                            )
+                        else
+                            DuplicateItem(i as String, arrayOf(firstIndex, secondIndex)
+
+                            )
                 )
             }
         }
@@ -48,9 +59,13 @@ class DuplicateAdapter(context: Context, private val hardness: Int) : BaseAdapte
 
 
         val duplicateItem = getItemByIndex(position)
-        gridItem.duplicate_activity_grid_image_item.setImageResource(duplicateItem.first.image)
+        if (mode == IMAGE)
+            gridItem.duplicate_activity_grid_image_item.setImageResource(duplicateItem.first.image)
+        else
+            gridItem.duplicate_activity_grid_text_item.text = duplicateItem.first.text
         val coverVisibility = duplicateItem.first.visibility[duplicateItem.second]
         gridItem.duplicate_activity_grid_image_item.visibility = if (coverVisibility == View.GONE) View.VISIBLE else View.GONE
+        gridItem.duplicate_activity_grid_text_item.visibility = if (coverVisibility == View.GONE) View.VISIBLE else View.GONE
         gridItem.duplicate_activity_grid_image_cover.visibility = coverVisibility
         return gridItem
     }
@@ -87,6 +102,8 @@ class DuplicateAdapter(context: Context, private val hardness: Int) : BaseAdapte
     companion object {
         private const val TAG = "DuplicateAdapter"
         private const val ALL_IMAGES_COUNT = 50
+        const val TEXT = 0
+        const val IMAGE = 1
     }
 
 }

@@ -2,7 +2,17 @@ package com.amir.alzheimer.infrastructure.dto
 
 import android.view.View
 
-data class DuplicateItem(val image: Int, var visibility: Array<Int>, var index: Array<Int>) {
+data class DuplicateItem(val image: Int, var index: Array<Int>) {
+    var text: String? = null
+    var visibility: Array<Int>
+
+    constructor(text: String, index: Array<Int>) : this(0, index) {
+        this.text = text
+    }
+
+    init {
+        visibility = arrayOf(View.GONE, View.GONE)
+    }
 
     fun setCoverVisible() {
         visibility = arrayOf(View.VISIBLE, View.VISIBLE)
@@ -10,6 +20,10 @@ data class DuplicateItem(val image: Int, var visibility: Array<Int>, var index: 
 
     fun isFound(): Boolean {
         return visibility.none { it == View.VISIBLE }
+    }
+
+    override fun toString(): String {
+        return "ind: ${index[0]} ${index[1]} - vis: ${visibility[0]} ${visibility[1]} -- $image --$text"
     }
 
     override fun equals(other: Any?): Boolean {
@@ -21,6 +35,7 @@ data class DuplicateItem(val image: Int, var visibility: Array<Int>, var index: 
         if (image != other.image) return false
         if (!visibility.contentEquals(other.visibility)) return false
         if (!index.contentEquals(other.index)) return false
+        if (text != other.text) return false
 
         return true
     }
@@ -29,11 +44,8 @@ data class DuplicateItem(val image: Int, var visibility: Array<Int>, var index: 
         var result = image
         result = 31 * result + visibility.contentHashCode()
         result = 31 * result + index.contentHashCode()
+        result = 31 * result + text.hashCode()
         return result
-    }
-
-    override fun toString(): String {
-        return "ind: ${index[0]} ${index[1]} - vis: ${visibility[0]} ${visibility[1]} -- $image"
     }
 
     companion object {

@@ -80,4 +80,6 @@
     <string name="sum_of_items">مجموع عکس‌ها</string>
     <string name="try_again">دوباره تلاش کنید</string>
     <string name="verify">بررسی</string>
+    <string name="well_done">آفرین</string>
+    <string name="duplicate_text">حروف تکراری</string>
 </resources>

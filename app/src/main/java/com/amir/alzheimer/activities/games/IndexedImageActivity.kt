@@ -42,6 +42,7 @@ class IndexedImageActivity : BaseActivity(), View.OnClickListener {
             activity_indexed_image_button_ready -> {
                 if (indexedImageAdapter.initiated) {
                     if (indexedImageAdapter.sumOfIndexes() == activity_indexed_image_sum.text.toString().toInt()) {
+                        Toast.makeText(this, getString(R.string.well_done), Toast.LENGTH_SHORT).show()
                         finish()
                     } else {
                         Toast.makeText(this, getString(R.string.try_again), Toast.LENGTH_SHORT).show()

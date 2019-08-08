@@ -65,7 +65,7 @@ class IndexedImageAdapter(context: Context) : BaseAdapter() {
     fun initiate() {
         initiated = true
         val duplicateItems: ArrayList<IndexedImageItem> = arrayListOf()
-        for (i in 0 until HARDNESS ) {
+        for (i in 0 until HARDNESS * 3) {
             this.duplicateItems.random().let {
                 it.visibility = View.GONE
                 duplicateItems.add(it)
@@ -82,7 +82,6 @@ class IndexedImageAdapter(context: Context) : BaseAdapter() {
     companion object {
         private const val TAG = "DuplicateAdapter"
         private const val HARDNESS = 4
-        private const val ALL_IMAGES_COUNT = 50
 
     }
 
