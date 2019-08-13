@@ -38,16 +38,9 @@ class DuplicateActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
         }, 1000, 1000)
 
 
-        val hardness: Int
         val mode = intent.getIntExtra(DUPLICATE_MODE, DuplicateAdapter.IMAGE)
-        if (mode == DuplicateAdapter.TEXT) {
-            activity_duplicate_grid.numColumns = 6
-            hardness = HARDNESS * 2 + 2
-        } else {
-            hardness = HARDNESS
-            activity_duplicate_grid.numColumns = 4
-        }
-        duplicateAdapter = DuplicateAdapter(this, hardness, mode)
+        activity_duplicate_grid.numColumns = 4
+        duplicateAdapter = DuplicateAdapter(this, HARDNESS, mode)
         activity_duplicate_grid.adapter = duplicateAdapter
     }
 

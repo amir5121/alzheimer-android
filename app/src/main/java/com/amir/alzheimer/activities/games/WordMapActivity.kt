@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.core.content.ContextCompat
 import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
+import com.amir.alzheimer.infrastructure.Constants
 import kotlinx.android.synthetic.main.activity_word_map.*
 import kotlinx.android.synthetic.main.include_score_timer.*
 import java.util.*
@@ -17,11 +18,7 @@ import kotlin.math.sqrt
 class WordMapActivity : BaseActivity(), View.OnClickListener, AdapterView.OnItemClickListener {
     private val timer = Timer()
     private var toRemember: List<String> = listOf()
-    private var toRememberSource: List<String> = listOf(
-            "خورشید", "آفتاب", "روز", "سواد", "فریاد", "ماشین", "تلوزیون", "ساعت", "بوق", "دیوار",
-            "دیو", "ترس", "تنفر", "شاذی", "کمند", "آرزو", "آبی", "مو", "کمد", "لامپ", "صدا", "مداد",
-            "بوق", "خودکار", "نوک", "طلایی", "کتاب"
-    )
+
 
     private var toRememberSize = 0
     private var lastClickedView: TextView? = null
@@ -102,8 +99,7 @@ class WordMapActivity : BaseActivity(), View.OnClickListener, AdapterView.OnItem
 
     private fun updateBoard() {
         if (word_map_list_left.visibility == View.GONE) {
-            toRememberSource = toRememberSource.shuffled()
-            toRemember = toRememberSource.slice(0 until 10)
+            toRemember = Constants.TO_REMEMBER_SOURCE.slice(0 until 10)
             toRememberSize = toRemember.size / 2
             word_map_button_ready.visibility = View.VISIBLE
             word_map_button_ready.text = getString(R.string.ready)

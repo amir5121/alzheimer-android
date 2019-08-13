@@ -12,6 +12,7 @@ import com.amir.alzheimer.activities.games.*
 import com.amir.alzheimer.androidpuzzlegame.MainActivityPuzzle
 import com.amir.alzheimer.base.BaseFragment
 import com.amir.alzheimer.infrastructure.adapter.DuplicateAdapter
+import com.amir.alzheimer.infrastructure.adapter.IndexedItemAdapter
 import kotlinx.android.synthetic.main.game_fragment.view.*
 
 class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
@@ -35,7 +36,12 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                     it.getString(R.string.duplicate_text)
                             ),
                     it.getString(R.string.important_events) to
-                            arrayListOf(),
+                            arrayListOf(
+                                    it.getString(R.string.word_map),
+                                    it.getString(R.string.party),
+                                    it.getString(R.string.celebs),
+                                    it.getString(R.string.utilization)
+                            ),
                     it.getString(R.string.numerical_memory) to
                             arrayListOf(),
                     it.getString(R.string.procedural_memory) to
@@ -80,18 +86,43 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                             2 -> activity.startActivity(Intent(context, SquareMatchActivity::class.java))
                             3 -> activity.startActivity(Intent(context, OneToFifty::class.java))
                             4 -> activity.startActivity(Intent(context, WordMapActivity::class.java))
-                            5 -> {
-                                val intent = Intent(context, DuplicateActivity::class.java)
-                                intent.putExtra(DuplicateActivity.DUPLICATE_MODE, DuplicateAdapter.IMAGE)
-                                activity.startActivity(intent)
-                            }
-                            6 -> activity.startActivity(Intent(context, IndexedImageActivity::class.java))
+                            5 -> activity.startActivity(Intent(context, DuplicateActivity::class.java))
+                            6 -> activity.startActivity(Intent(context, IndexedItemActivity::class.java))
                             7 -> {
                                 val intent = Intent(context, DuplicateActivity::class.java)
                                 intent.putExtra(DuplicateActivity.DUPLICATE_MODE, DuplicateAdapter.TEXT)
                                 activity.startActivity(intent)
                             }
                         }
+                    1 -> {
+                        when (i) {
+
+                            0 -> {
+                                val intent = Intent(context, IndexedItemActivity::class.java)
+                                intent.putExtra(IndexedItemActivity.MAP_MODE, IndexedItemAdapter.TEXT)
+                                activity.startActivity(intent)
+                            }
+                            1 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.party_question))
+                                activity.startActivity(intent)
+                            }
+                            2 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.celebrity_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+
+                            3 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.utilization_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+
+                        }
+                    }
                 }
             }
         }
@@ -105,12 +136,12 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
     }
 
     fun backPressed(): Boolean {
-        if (pickedDomain == null) {
-            return true
+        return if (pickedDomain == null) {
+            true
         } else {
             pickedDomain = null
             updateListView(domainList.keys.toList() as ArrayList<String>)
-            return false
+            false
         }
     }
 }

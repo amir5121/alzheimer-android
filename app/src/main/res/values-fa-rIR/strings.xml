@@ -33,7 +33,7 @@
     <string name="match">تطابق</string>
     <string name="level">سطح:</string>
     <string name="image">عکس</string>
-    <string name="find_the_missing_number_memorise_them_and_hit_solve_numbers_are_from_1_to_12">اعداد گم شده را پیدا کنید به خاطر بسپارید و دکمه‌ی حل را بزنید. اعداد از یک تا دوازده هستند</string>
+    <string name="find_the_missing_number">اعداد گم شده را پیدا کنید به خاطر بسپارید و دکمه‌ی حل را بزنید. اعداد از یک تا دوازده هستند</string>
     <string name="description">توضیحات</string>
     <string name="add_new">افزودن</string>
     <string name="Set">تنظیم کردن</string>
@@ -76,10 +76,18 @@
     <string name="shape_categorizing">طبقه‌بندی اشیا و کالا</string>
     <string name="word_map">نگاشت کلمه</string>
     <string name="match_images">شکل‌های زیر را به خاطر بسپارید و هر زمان آماده بودید دکمه‌ی آماده  را بزنید و شکل‌ها را بیابید</string>
-    <string name="image_map">نگارش عکس</string>
+    <string name="image_map">نگاشت عکس</string>
     <string name="sum_of_items">مجموع عکس‌ها</string>
     <string name="try_again">دوباره تلاش کنید</string>
     <string name="verify">بررسی</string>
     <string name="well_done">آفرین</string>
     <string name="duplicate_text">حروف تکراری</string>
+    <string name="party">مهمانی</string>
+    <string name="question">سوال</string>
+    <string name="party_question">"اگر بخواهید یک مهمانی برپا کنید و برای پانزده نفر شام تهیه کنید کلیه برنامه‌ها را به ترتیب لیست کنید "</string>
+    <string name="answer">پاسخ</string>
+    <string name="celebs">بازیگر</string>
+    <string name="celebrity_question">نام سه بازیگر را حفظ کنید</string>
+    <string name="utilization">استفاده</string>
+    <string name="utilization_question">برای هریک از ابزار ریز استفاده‌ای تصور کنید - قاب - قلیان - میخ - سوزن - گلدان</string>
 </resources>

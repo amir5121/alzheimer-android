@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".activities.games.IndexedImageActivity"></activity>
+        <activity android:name=".activities.games.QuestionActivity"></activity>
+        <activity android:name=".activities.games.IndexedItemActivity" />
         <activity
             android:name=".activities.games.DuplicateActivity"
             android:label="@string/title_activity_duplicate"

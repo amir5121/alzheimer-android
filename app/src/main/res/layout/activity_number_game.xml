@@ -16,7 +16,7 @@
         android:background="@color/colorAccent"
         android:gravity="center"
         android:padding="8dp"
-        android:text="@string/find_the_missing_number_memorise_them_and_hit_solve_numbers_are_from_1_to_12"
+        android:text="@string/find_the_missing_number"
         android:textColor="@color/white"
         android:textSize="16sp" />
 

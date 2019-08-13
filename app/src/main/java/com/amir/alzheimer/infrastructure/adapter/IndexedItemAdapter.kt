@@ -6,14 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.amir.alzheimer.R
-import com.amir.alzheimer.infrastructure.dto.IndexedImageItem
+import com.amir.alzheimer.infrastructure.Constants
+import com.amir.alzheimer.infrastructure.dto.IndexedItem
 import kotlinx.android.synthetic.main.image_index_item.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class IndexedImageAdapter(context: Context) : BaseAdapter() {
-    private var duplicateItems: ArrayList<IndexedImageItem> = arrayListOf()
+class IndexedItemAdapter(context: Context, mode: Int) : BaseAdapter() {
+    private var duplicateItems: ArrayList<IndexedItem> = arrayListOf()
     private var inflater: LayoutInflater
     var initiated = false
 
@@ -23,16 +24,25 @@ class IndexedImageAdapter(context: Context) : BaseAdapter() {
             while (!duplicateItems.none { it.index == imageIndex }) {
                 imageIndex = (1..10).random()
             }
-            duplicateItems.add(
-                    IndexedImageItem(
-                            context.resources.getIdentifier(
-                                    "duplicate_${String.format(Locale.US, "%03d", i)}", "drawable",
-                                    context.packageName),
-                            View.VISIBLE,
-                            imageIndex
+            if (mode == IMAGE) {
+                duplicateItems.add(
+                        IndexedItem(
+                                context.resources.getIdentifier(
+                                        "duplicate_${String.format(Locale.US, "%03d", i)}", "drawable",
+                                        context.packageName),
+                                imageIndex
 
-                    )
-            )
+                        )
+                )
+            } else {
+                duplicateItems.add(
+                        IndexedItem(
+                                Constants.TO_REMEMBER_SOURCE[i],
+                                imageIndex
+
+                        )
+                )
+            }
         }
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
@@ -44,9 +54,10 @@ class IndexedImageAdapter(context: Context) : BaseAdapter() {
 
 
         val duplicateItem = duplicateItems[position]
-        gridItem.image_index_item_image.setImageResource(duplicateItem.image)
-        gridItem.image_index_item_text.text = duplicateItem.index.toString()
-        gridItem.image_index_item_text.visibility = duplicateItem.visibility
+        gridItem.index_item_image.setImageResource(duplicateItem.image)
+        gridItem.index_text_text.text = duplicateItem.text
+        gridItem.index_item_index_text.text = duplicateItem.index.toString()
+        gridItem.index_item_index_text.visibility = duplicateItem.visibility
         return gridItem
     }
 
@@ -64,7 +75,7 @@ class IndexedImageAdapter(context: Context) : BaseAdapter() {
 
     fun initiate() {
         initiated = true
-        val duplicateItems: ArrayList<IndexedImageItem> = arrayListOf()
+        val duplicateItems: ArrayList<IndexedItem> = arrayListOf()
         for (i in 0 until HARDNESS * 3) {
             this.duplicateItems.random().let {
                 it.visibility = View.GONE
@@ -82,6 +93,8 @@ class IndexedImageAdapter(context: Context) : BaseAdapter() {
     companion object {
         private const val TAG = "DuplicateAdapter"
         private const val HARDNESS = 4
+        const val IMAGE = 2
+        const val TEXT = 1
 
     }
 

@@ -41,7 +41,7 @@
     <string name="count">Count</string>
     <string name="next_level">Next Level</string>
     <string name="level">Level:</string>
-    <string name="find_the_missing_number_memorise_them_and_hit_solve_numbers_are_from_1_to_12">Find the missing number, memorise them and hit solve! Numbers are from 1 to 12</string>
+    <string name="find_the_missing_number">Find the missing number, memorise them and hit solve! Numbers are from 1 to 12</string>
     <string name="score">Score</string>
     <string name="solve">Solve!</string>
     <string name="MostSelect">You can select up to %d pictures</string>
@@ -90,4 +90,12 @@
     <string name="try_again">Try Again</string>
     <string name="well_done">Well Done!</string>
     <string name="duplicate_text">Duplicate Text</string>
+    <string name="party">Party</string>
+    <string name="question">Question</string>
+    <string name="party_question">I\'m not in the mood to translate this to english</string>
+    <string name="answer">Answer</string>
+    <string name="celebrity_question">I\'m not in the mood again</string>
+    <string name="celebs">celebrities</string>
+    <string name="utilization">Utilization</string>
+    <string name="utilization_question">Not in the fucking mood man</string>
 </resources>
