@@ -99,4 +99,13 @@
     <string name="flower_question">نام سه  گل فصل بهار را بگویید\nنام سه شعر ایرانی را بگویید\nنام سه اسم که با باپ شروع میشود بیان کنید\nنام سه رییس جمهور کشور را بیان کنید</string>
     <string name="number_map">نگاشت عدد</string>
     <string name="number_find">جستو جوی اعداد</string>
+    <string name="count_up">به بالا بشمار</string>
+    <string name="count_down">شمارش به پایین</string>
+    <string name="count_up_2">دو تا دو تا به بالا بشمارید</string>
+    <string name="double_count">شمارش دوتایی</string>
+    <string name="reverse_count">شمارش برعکس</string>
+    <string name="count_down_2">شمارش به پایین دوتادوتا</string>
+    <string name="double_count_down">شمازش دوتایی به پایین</string>
+    <string name="evaluate">محاسبه</string>
+    <string name="result">نتیجه</string>
 </resources>

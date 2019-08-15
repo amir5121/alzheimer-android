@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
+        android:id="@+id/math_expression_item_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textSize="23sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/math_expression_item_text"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/result"
+            android:inputType="textPhonetic">
+
+            <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
+                android:id="@+id/activity_indexed_image_sum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:textSize="17sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
+            android:id="@+id/math_expression_item_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layoutDirection="ltr"
+            android:textAlignment="center"
+            android:textSize="23sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</RelativeLayout>

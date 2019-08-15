@@ -5,15 +5,28 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/level"
+        android:id="@+id/activity_number_game_level"
         layout="@layout/include_score_timer" />
+
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
+        android:id="@+id/activity_one_to_fifty_help_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_number_game_level"
+        android:layout_margin="8dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/count_up"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
 
     <GridLayout
         android:id="@+id/activity_one_to_fifty_grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/level"
+        android:layout_below="@id/activity_one_to_fifty_help_text"
         android:layout_margin="15dp" />
 
     <com.amir.alzheimer.infrastructure.views.AlzhimerButton

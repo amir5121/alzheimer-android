@@ -14,11 +14,13 @@ import kotlin.math.sqrt
 
 
 class OneToFifty : BaseActivity(), View.OnClickListener {
+    private var mode: Int = COUNT_UP
     private var pauseCounter: Boolean = true
     private var lastClick: Int = 0
     private val hardnessLevels: IntArray = intArrayOf(18, 32, 50, 72, 98)
     private var hardnessLevel: Int = 0
     private var count: Int = hardnessLevels[hardnessLevel] * 3
+    private lateinit var firstHalf: MutableList<Int>
     private lateinit var secondHalf: MutableList<Int>
     private val timer = Timer()
 
@@ -27,7 +29,15 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
         setContentView(R.layout.activity_one_to_fifthy)
 
         activity_number_game_button_next_level.setOnClickListener(this)
-        updateBoard()
+        mode = intent.getIntExtra(MODE, COUNT_UP)
+        when (mode) {
+            COUNT_DOWN -> activity_one_to_fifty_help_text.text = getString(R.string.count_down)
+            COUNT_2_UP -> activity_one_to_fifty_help_text.text = getString(R.string.count_up_2)
+            COUNT_2_DOWN -> activity_one_to_fifty_help_text.text = getString(R.string.count_down_2)
+        }
+        if (intent.getIntExtra(HARDNESS_INTENT, hardnessLevel) != 0) {
+            activity_number_game_level.visibility = View.GONE
+        }
 
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
@@ -37,9 +47,12 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
                 }
             }
         }, 1000, 1000)
+
+        updateBoard()
     }
 
     private fun updateBoard() {
+        hardnessLevel = intent.getIntExtra(HARDNESS_INTENT, hardnessLevel)
         activity_number_game_text_level.text = (hardnessLevel + 1).toString()
 
         activity_number_game_button_next_level.visibility = View.GONE
@@ -47,8 +60,24 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
 
         activity_one_to_fifty_grid.removeAllViews()
         val mid = hardnessLevels[hardnessLevel] / 2
-        val firstHalf: Iterable<Int> = (1..mid).shuffled()
-        secondHalf = (mid + 1..hardnessLevels[hardnessLevel]).shuffled().toMutableList()
+        val midToHardness = (mid + 1..hardnessLevels[hardnessLevel]).shuffled().toMutableList()
+        val oneToMid = (1..mid).shuffled() as MutableList<Int>
+        firstHalf =
+                when (mode) {
+                    COUNT_UP -> oneToMid
+                    COUNT_DOWN -> midToHardness
+                    COUNT_2_UP -> (1..mid * 2 step 2).shuffled() as MutableList<Int>
+                    COUNT_2_DOWN -> (mid * 2 + 1..hardnessLevels[hardnessLevel] * 2 step 2).shuffled().toMutableList()
+                    else -> oneToMid
+                }
+        secondHalf =
+                when (mode) {
+                    COUNT_UP -> midToHardness
+                    COUNT_DOWN -> oneToMid
+                    COUNT_2_UP -> (mid * 2 + 1..hardnessLevels[hardnessLevel] * 2 step 2).shuffled().toMutableList()
+                    COUNT_2_DOWN -> (1..mid * 2 step 2).shuffled() as MutableList<Int>
+                    else -> midToHardness
+                }
 
         val itemCountIntRow = sqrt(mid.toDouble())
         activity_one_to_fifty_grid.columnCount = itemCountIntRow.toInt()
@@ -61,10 +90,18 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
             view.text = i.toString()
             activity_one_to_fifty_grid.addView(view)
         }
+
+        when (mode) {
+            COUNT_DOWN -> lastClick = hardnessLevels[hardnessLevel] + 1
+            COUNT_2_UP -> lastClick = -1
+            COUNT_2_DOWN -> lastClick = hardnessLevels[hardnessLevel] * 2 + 1
+
+        }
+
     }
 
-    override fun onClick(p0: View?) {
-        when (p0) {
+    override fun onClick(view: View?) {
+        when (view) {
             activity_number_game_button_next_level -> {
                 if (hardnessLevel < hardnessLevels.size) hardnessLevel++
                 count += hardnessLevels[hardnessLevel] * hardnessLevel
@@ -72,17 +109,26 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
                 updateBoard()
             }
             is Button -> {
-                if (p0.text.toString().toInt() == lastClick + 1) {
+                val clickedNext = view.text.toString().toInt() == lastClick + 1
+                val clickedNext2 = view.text.toString().toInt() == lastClick + 2
+                val clickedBefore2 = view.text.toString().toInt() == lastClick - 2
+                val clickedBefore = view.text.toString().toInt() == lastClick - 1
+                if (clickedNext || clickedBefore || clickedNext2 || clickedBefore2) {
                     pauseCounter = false
-                    lastClick++
+                    when {
+                        clickedNext -> lastClick++
+                        clickedBefore -> lastClick--
+                        clickedNext2 -> lastClick += 2
+                        clickedBefore2 -> lastClick -= 2
+                    }
                     if (secondHalf.isNotEmpty())
-                        p0.text = secondHalf.removeAt(0).toString()
+                        view.text = secondHalf.removeAt(0).toString()
                     else {
-                        p0.text = ""
-                        p0.isClickable = false
+                        view.text = ""
+                        view.isClickable = false
                     }
 
-                    if (lastClick == hardnessLevels[hardnessLevel]) {
+                    if (lastClick == hardnessLevels[hardnessLevel] || lastClick == 1) {
                         pauseCounter = true
                         activity_number_game_button_next_level.visibility = View.VISIBLE
                     }
@@ -91,4 +137,13 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
         }
     }
 
+
+    companion object {
+        const val COUNT_UP = 0
+        const val COUNT_DOWN = 2
+        const val COUNT_2_UP = 1
+        const val COUNT_2_DOWN = 12
+        const val HARDNESS_INTENT = "HARDNESS_INTENT"
+        const val MODE = "MODE"
+    }
 }

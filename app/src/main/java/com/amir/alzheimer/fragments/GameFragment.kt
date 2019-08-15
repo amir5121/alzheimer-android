@@ -49,7 +49,12 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                     it.getString(R.string.numerical_memory) to
                             arrayListOf(
                                     it.getString(R.string.number_find),
-                                    it.getString(R.string.number_map)
+                                    it.getString(R.string.number_map),
+                                    it.getString(R.string.count),
+                                    it.getString(R.string.reverse_count),
+                                    it.getString(R.string.double_count),
+                                    it.getString(R.string.double_count_down),
+                                    it.getString(R.string.evaluate)
                             ),
                     it.getString(R.string.procedural_memory) to
                             arrayListOf(),
@@ -168,6 +173,33 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                 intent.putExtra(IndexedItemActivity.MAP_MODE, IndexedItemAdapter.NUMBER)
                                 activity.startActivity(intent)
                             }
+
+                            2 -> {
+                                val intent = Intent(context, OneToFifty::class.java)
+                                intent.putExtra(OneToFifty.HARDNESS_INTENT, 2)
+                                activity.startActivity(intent)
+                            }
+
+                            3 -> {
+                                val intent = Intent(context, OneToFifty::class.java)
+                                intent.putExtra(OneToFifty.HARDNESS_INTENT, 2)
+                                intent.putExtra(OneToFifty.MODE, OneToFifty.COUNT_DOWN)
+                                activity.startActivity(intent)
+                            }
+
+                            4 -> {
+                                val intent = Intent(context, OneToFifty::class.java)
+                                intent.putExtra(OneToFifty.HARDNESS_INTENT, 2)
+                                intent.putExtra(OneToFifty.MODE, OneToFifty.COUNT_2_UP)
+                                activity.startActivity(intent)
+                            }
+
+                            5 -> {
+                                val intent = Intent(context, OneToFifty::class.java)
+                                intent.putExtra(OneToFifty.MODE, OneToFifty.COUNT_2_DOWN)
+                                activity.startActivity(intent)
+                            }
+                            6 -> activity.startActivity(Intent(context, MathQuestionActivity::class.java))
                         }
                     }
                 }

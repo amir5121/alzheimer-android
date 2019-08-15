@@ -16,4 +16,21 @@ class AlzhimerButton : AppCompatButton {
     init {
         this.typeface = Typeface.createFromAsset(context.assets, "Vazir.ttf")
     }
+
+    override fun setText(text: CharSequence?, type: BufferType?) {
+        val text2 = text.toString()
+                .replace("1", "۱")
+                .replace("2", "۲")
+                .replace("3", "۳")
+                .replace("4", "۴")
+                .replace("5", "۵")
+                .replace("6", "۶")
+                .replace("7", "۷")
+                .replace("8", "۸")
+                .replace("9", "۹")
+                .replace("0", "۰")
+
+        super.setText(text2, type)
+    }
+
 }

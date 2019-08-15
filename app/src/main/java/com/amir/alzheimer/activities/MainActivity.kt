@@ -13,8 +13,8 @@ import com.amir.alzheimer.fragments.GalleryFragment
 import com.amir.alzheimer.fragments.GameFragment
 import com.amir.alzheimer.fragments.SettingsFragment
 import com.amir.alzheimer.infrastructure.AlzheimerItemCallback
-import com.amir.alzheimer.infrastructure.adapter.OptionsAdapter
 import com.amir.alzheimer.infrastructure.Utils
+import com.amir.alzheimer.infrastructure.adapter.OptionsAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), AlzheimerItemCallback, View.OnClickListener {

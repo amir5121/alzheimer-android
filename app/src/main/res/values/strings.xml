@@ -107,4 +107,13 @@
     <string name="flower">Flower</string>
     <string name="number_map">Number Map</string>
     <string name="number_find">Find Number</string>
+    <string name="count_up">Count up!</string>
+    <string name="reverse_count">Reverse count</string>
+    <string name="count_down">Count Down</string>
+    <string name="count_up_2">Count Up with steps of 2</string>
+    <string name="double_count">Doble count</string>
+    <string name="count_down_2">Count down with steps of 2</string>
+    <string name="double_count_down">Double Down Count</string>
+    <string name="result">Result</string>
+    <string name="evaluate">Evaluate</string>
 </resources>
