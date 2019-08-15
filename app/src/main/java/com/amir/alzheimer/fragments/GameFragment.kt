@@ -12,6 +12,7 @@ import com.amir.alzheimer.activities.games.*
 import com.amir.alzheimer.androidpuzzlegame.MainActivityPuzzle
 import com.amir.alzheimer.base.BaseFragment
 import com.amir.alzheimer.infrastructure.adapter.DuplicateAdapter
+import com.amir.alzheimer.infrastructure.adapter.FindAdapter
 import com.amir.alzheimer.infrastructure.adapter.IndexedItemAdapter
 import kotlinx.android.synthetic.main.game_fragment.view.*
 
@@ -54,7 +55,10 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                     it.getString(R.string.reverse_count),
                                     it.getString(R.string.double_count),
                                     it.getString(R.string.double_count_down),
-                                    it.getString(R.string.evaluate)
+                                    it.getString(R.string.evaluate),
+                                    it.getString(R.string.even_numbers),
+                                    it.getString(R.string.one_minute),
+                                    it.getString(R.string.fruits)
                             ),
                     it.getString(R.string.procedural_memory) to
                             arrayListOf(),
@@ -200,6 +204,22 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                 activity.startActivity(intent)
                             }
                             6 -> activity.startActivity(Intent(context, MathQuestionActivity::class.java))
+                            7 -> {
+                                val intent = Intent(context, FindActivity::class.java)
+                                intent.putExtra(FindActivity.FIND_MODE, FindAdapter.NUMBER)
+                                activity.startActivity(intent)
+                            }
+                            8 -> {
+                                val intent = Intent(context, IndexedItemActivity::class.java)
+                                intent.putExtra(IndexedItemActivity.MAP_MODE, IndexedItemAdapter.CHICKS_NAME)
+                                activity.startActivity(intent)
+                            }
+                            9 -> {
+                                val intent = Intent(context, IndexedItemActivity::class.java)
+                                intent.putExtra(IndexedItemActivity.MAP_MODE, IndexedItemAdapter.FRUITS)
+                                activity.startActivity(intent)
+                            }
+
                         }
                     }
                 }

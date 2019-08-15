@@ -1,7 +1,6 @@
 package com.amir.alzheimer.infrastructure.adapter
 
 import android.content.Context
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,9 @@ import androidx.core.content.ContextCompat
 import com.amir.alzheimer.R
 import kotlinx.android.synthetic.main.image_index_item.view.*
 import java.util.*
-import kotlin.collections.ArrayList
 
-class FindAdapter(val context: Context) : BaseAdapter() {
-    var images: ArrayList<Int> = arrayListOf()
+class FindAdapter(val context: Context, val mode: Int) : BaseAdapter() {
+    var items: ArrayList<Int> = arrayListOf()
     var toFind: List<Int> = listOf()
     var found: BooleanArray
     private var inflater: LayoutInflater
@@ -22,14 +20,21 @@ class FindAdapter(val context: Context) : BaseAdapter() {
     init {
         val indexes = (1 until 50).shuffled().slice(1 until HARDNESS * HARDNESS + 1)
         for (i in indexes) {
-            images.add(
-                    context.resources.getIdentifier(
-                            "duplicate_${String.format(Locale.US, "%03d", i)}", "drawable",
-                            context.packageName)
+            items.add(
+                    if (mode == IMAGE)
+                        context.resources.getIdentifier(
+                                "duplicate_${String.format(Locale.US, "%03d", i)}", "drawable",
+                                context.packageName)
+                    else i
             )
         }
         inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        toFind = images.slice(0..HARDNESS)
+        toFind = if (mode == IMAGE) {
+            items.slice(0..HARDNESS)
+        } else {
+            initiated = true
+            items.filter { it % 2 == 0 }
+        }
         found = BooleanArray(indexes.size)
     }
 
@@ -37,7 +42,12 @@ class FindAdapter(val context: Context) : BaseAdapter() {
         val gridItem: View = convertView
                 ?: inflater.inflate(R.layout.image_index_item, parent, false)
 
-        gridItem.index_item_image.setImageResource(images[position])
+        if (mode == IMAGE) {
+            gridItem.index_item_image.setImageResource(items[position])
+        } else {
+            gridItem.index_text_text.text = items[position].toString()
+
+        }
         if (found[position]) {
             gridItem.index_activity_container.setBackgroundColor(ContextCompat.getColor(context, R.color.green))
         } else {
@@ -49,7 +59,7 @@ class FindAdapter(val context: Context) : BaseAdapter() {
     }
 
     override fun getItem(position: Int): Any {
-        return images[position]
+        return items[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -57,11 +67,13 @@ class FindAdapter(val context: Context) : BaseAdapter() {
     }
 
     override fun getCount(): Int {
-        return if (!initiated) HARDNESS else images.size
+        return if (!initiated) HARDNESS else items.size
     }
 
     companion object {
         const val HARDNESS = 5
+        const val IMAGE = 1
+        const val NUMBER = 2
     }
 
 }

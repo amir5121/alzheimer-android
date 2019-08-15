@@ -10,7 +10,6 @@ import com.amir.alzheimer.infrastructure.Constants
 import com.amir.alzheimer.infrastructure.dto.IndexedItem
 import kotlinx.android.synthetic.main.image_index_item.view.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class IndexedItemAdapter(context: Context, mode: Int) : BaseAdapter() {
@@ -20,9 +19,15 @@ class IndexedItemAdapter(context: Context, mode: Int) : BaseAdapter() {
 
     init {
         for (i in 1..HARDNESS) {
-            var imageIndex = (1..10).random()
+            var imageIndex = if (mode == FRUITS)
+                (100..999).random()
+            else
+                (1..10).random()
             while (!duplicateItems.none { it.index == imageIndex }) {
-                imageIndex = (1..10).random()
+                imageIndex = if (mode == FRUITS)
+                    (100..999).random()
+                else
+                    (1..10).random()
             }
             when (mode) {
                 IMAGE -> duplicateItems.add(
@@ -44,6 +49,20 @@ class IndexedItemAdapter(context: Context, mode: Int) : BaseAdapter() {
                 NUMBER -> duplicateItems.add(
                         IndexedItem(
                                 Constants.TO_REMEMBER_NUMBER[i],
+                                imageIndex
+
+                        )
+                )
+                CHICKS_NAME -> duplicateItems.add(
+                        IndexedItem(
+                                Constants.CHICKS_NAMES[i],
+                                imageIndex
+
+                        )
+                )
+                FRUITS -> duplicateItems.add(
+                        IndexedItem(
+                                Constants.FRUITES[i],
                                 imageIndex
 
                         )
@@ -101,6 +120,8 @@ class IndexedItemAdapter(context: Context, mode: Int) : BaseAdapter() {
         const val IMAGE = 2
         const val TEXT = 1
         const val NUMBER = 4
+        const val CHICKS_NAME = 5
+        const val FRUITS = 7
 
     }
 

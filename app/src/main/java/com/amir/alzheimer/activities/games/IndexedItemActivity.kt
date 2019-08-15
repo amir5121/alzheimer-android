@@ -48,8 +48,24 @@ class IndexedItemActivity : BaseActivity(), View.OnClickListener {
                     }
                 } else {
                     indexedItemAdapter.initiate()
-                    activity_indexed_image_button_ready.text = getString(R.string.verify)
-                    activity_indexed_image_sum_container.visibility = View.VISIBLE
+                    val mode = intent.getIntExtra(MAP_MODE, IndexedItemAdapter.IMAGE)
+                    if (mode == IndexedItemAdapter.CHICKS_NAME || mode == IndexedItemAdapter.FRUITS) {
+                        activity_indexed_image_help_text.text = getString(R.string.wait_one_min)
+                        activity_indexed_image_grid.visibility = View.GONE
+                        val delay: Long = if (mode == IndexedItemAdapter.FRUITS) 30000 else 60000
+                        timer.schedule(object : TimerTask() {
+                            override fun run() {
+                                runOnUiThread {
+                                    activity_indexed_image_help_text.text = getString(R.string.match_images)
+                                    activity_indexed_image_sum_container.visibility = View.VISIBLE
+                                    activity_indexed_image_grid.visibility = View.VISIBLE
+                                }
+                            }
+                        }, delay)
+                    } else {
+                        activity_indexed_image_button_ready.text = getString(R.string.verify)
+                        activity_indexed_image_sum_container.visibility = View.VISIBLE
+                    }
                 }
             }
         }

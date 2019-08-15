@@ -22,7 +22,7 @@
 
 
     <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
-        android:id="@+id/text_container"
+        android:id="@+id/activity_find_text_help"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/activity_find_button_ready"
-        android:layout_below="@id/text_container"
+        android:layout_below="@id/activity_find_text_help"
         android:layout_margin="15dp" />
 
 

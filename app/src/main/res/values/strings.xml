@@ -116,4 +116,9 @@
     <string name="double_count_down">Double Down Count</string>
     <string name="result">Result</string>
     <string name="evaluate">Evaluate</string>
+    <string name="even_numbers">Even Numbers</string>
+    <string name="tap_evens">Tap on even numbers</string>
+    <string name="wait_one_min">Wait one minute</string>
+    <string name="one_minute">One Minute</string>
+    <string name="fruits">Fruits</string>
 </resources>

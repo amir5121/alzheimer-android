@@ -108,4 +108,9 @@
     <string name="double_count_down">شمازش دوتایی به پایین</string>
     <string name="evaluate">محاسبه</string>
     <string name="result">نتیجه</string>
+    <string name="even_numbers">اعداد زوج</string>
+    <string name="tap_evens">برروی اعداد زوج بزنید</string>
+    <string name="one_minute">یک دقیقه</string>
+    <string name="wait_one_min">یک دقیقه صبر کنید و جمع اعداد را ثبت کنید</string>
+    <string name="fruits">میوه‌ها</string>
 </resources>
