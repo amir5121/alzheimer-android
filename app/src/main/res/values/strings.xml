@@ -98,4 +98,13 @@
     <string name="celebs">celebrities</string>
     <string name="utilization">Utilization</string>
     <string name="utilization_question">Not in the fucking mood man</string>
+    <string name="find">Find</string>
+    <string name="memory">Memory</string>
+    <string name="memory_question">Fuck off</string>
+    <string name="invert">Invert</string>
+    <string name="invert_question">the fuck</string>
+    <string name="flower_question">Fuck flowers</string>
+    <string name="flower">Flower</string>
+    <string name="number_map">Number Map</string>
+    <string name="number_find">Find Number</string>
 </resources>

@@ -15,7 +15,7 @@ import kotlin.collections.ArrayList
 
 class IndexedItemAdapter(context: Context, mode: Int) : BaseAdapter() {
     private var duplicateItems: ArrayList<IndexedItem> = arrayListOf()
-    private var inflater: LayoutInflater
+    private var inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     var initiated = false
 
     init {
@@ -24,8 +24,8 @@ class IndexedItemAdapter(context: Context, mode: Int) : BaseAdapter() {
             while (!duplicateItems.none { it.index == imageIndex }) {
                 imageIndex = (1..10).random()
             }
-            if (mode == IMAGE) {
-                duplicateItems.add(
+            when (mode) {
+                IMAGE -> duplicateItems.add(
                         IndexedItem(
                                 context.resources.getIdentifier(
                                         "duplicate_${String.format(Locale.US, "%03d", i)}", "drawable",
@@ -34,17 +34,22 @@ class IndexedItemAdapter(context: Context, mode: Int) : BaseAdapter() {
 
                         )
                 )
-            } else {
-                duplicateItems.add(
+                TEXT -> duplicateItems.add(
                         IndexedItem(
                                 Constants.TO_REMEMBER_SOURCE[i],
                                 imageIndex
 
                         )
                 )
+                NUMBER -> duplicateItems.add(
+                        IndexedItem(
+                                Constants.TO_REMEMBER_NUMBER[i],
+                                imageIndex
+
+                        )
+                )
             }
         }
-        inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     }
 
@@ -95,6 +100,7 @@ class IndexedItemAdapter(context: Context, mode: Int) : BaseAdapter() {
         private const val HARDNESS = 4
         const val IMAGE = 2
         const val TEXT = 1
+        const val NUMBER = 4
 
     }
 

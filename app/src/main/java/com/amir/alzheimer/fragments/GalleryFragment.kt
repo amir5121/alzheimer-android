@@ -36,7 +36,6 @@ class GalleryFragment : BaseFragment() {
                     this.relatives = relatives
                     val adapter = PeopleAdapter(context, relatives.map { it.title })
                     view.slider_fragment_list_view.adapter = adapter
-//                    view.slider_fragment_list_view.adapter.notifyDataSetChanged()
                 }.addTo(application.compositeDisposable)
 
 

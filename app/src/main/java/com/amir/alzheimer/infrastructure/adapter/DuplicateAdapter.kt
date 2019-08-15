@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.amir.alzheimer.R
+import com.amir.alzheimer.infrastructure.Constants
 import com.amir.alzheimer.infrastructure.dto.DuplicateItem
 import kotlinx.android.synthetic.main.duplicate_activity_image_vire.view.*
 import java.util.*
@@ -21,7 +22,9 @@ class DuplicateAdapter(context: Context, private val hardness: Int, val mode: In
         var initialArray = (1..ALL_IMAGES_COUNT).toList() as List<*>
         if (mode == TEXT)
             initialArray = listOf(
-                   "پ", "ت", "ث", "ج", "چ", "ح", "خ", "د", "ذ", "ر", "ز", "ژ", "س", "ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ک", "گ", "ل", "م", "ن", "و", "ه", "ی")
+                    "پ", "ت", "ث", "ج", "چ", "ح", "خ", "د", "ذ", "ر", "ز", "ژ", "س", "ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ک", "گ", "ل", "م", "ن", "و", "ه", "ی")
+        if (mode == NUMBER)
+            initialArray = Constants.TO_REMEMBER_NUMBER
 
         var listOfIndexes = initialArray.shuffled().slice(1..hardness)
 
@@ -104,6 +107,7 @@ class DuplicateAdapter(context: Context, private val hardness: Int, val mode: In
         private const val ALL_IMAGES_COUNT = 50
         const val TEXT = 0
         const val IMAGE = 1
+        const val NUMBER = 3
     }
 
 }

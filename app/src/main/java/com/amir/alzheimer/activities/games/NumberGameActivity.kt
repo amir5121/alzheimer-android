@@ -142,8 +142,8 @@ class NumberGameActivity : BaseActivity(), View.OnClickListener {
             }
         }
 
-        private fun hasValue(numbers: IntArray, `val`: Int): Boolean {
-            for (i in numbers) if (`val` == i) return true
+        private fun hasValue(numbers: IntArray, value: Int): Boolean {
+            for (i in numbers) if (value == i) return true
             return false
         }
     }

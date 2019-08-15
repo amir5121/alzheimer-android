@@ -8,6 +8,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:paddingStart="7dp"
+        android:layout_margin="7dp"
         android:paddingLeft="7dp"
         android:paddingTop="15dp"
         android:paddingEnd="0dp"

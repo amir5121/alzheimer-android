@@ -89,5 +89,14 @@
     <string name="celebs">بازیگر</string>
     <string name="celebrity_question">نام سه بازیگر را حفظ کنید</string>
     <string name="utilization">استفاده</string>
-    <string name="utilization_question">برای هریک از ابزار ریز استفاده‌ای تصور کنید - قاب - قلیان - میخ - سوزن - گلدان</string>
+    <string name="utilization_question">برای هریک از ابزار ریز استفاده‌ای تصور کنید\n - قاب\n - قلیان\n - میخ\n - سوزن\n - گلدان</string>
+    <string name="find">پیدا کن</string>
+    <string name="memory">خاطره</string>
+    <string name="memory_question">یک خاطره را از شش ماه قبل تداعی کنید\nیک خاطره را از یک سال قبل بگویید\nیک خاطره از موضوعات مهم تداعی کنید\nیک خاطره در کودکی را بیان کنید</string>
+    <string name="invert">برعکس</string>
+    <string name="invert_question">این جمله را در ذهن خود برعکس کنید\n- چفدر حالم خوب است\n\nاین شعر را خفظ  کنید و برای خود در طول روز تکرار کنید\nزدست هر دو دیده و دل هر دو فریاد\nزنم بر دیده تا گردد آزاد</string>
+    <string name="flower">گل</string>
+    <string name="flower_question">نام سه  گل فصل بهار را بگویید\nنام سه شعر ایرانی را بگویید\nنام سه اسم که با باپ شروع میشود بیان کنید\nنام سه رییس جمهور کشور را بیان کنید</string>
+    <string name="number_map">نگاشت عدد</string>
+    <string name="number_find">جستو جوی اعداد</string>
 </resources>

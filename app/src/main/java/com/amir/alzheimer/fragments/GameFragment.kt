@@ -40,10 +40,17 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                     it.getString(R.string.word_map),
                                     it.getString(R.string.party),
                                     it.getString(R.string.celebs),
-                                    it.getString(R.string.utilization)
+                                    it.getString(R.string.utilization),
+                                    it.getString(R.string.find),
+                                    it.getString(R.string.memory),
+                                    it.getString(R.string.invert),
+                                    it.getString(R.string.flower)
                             ),
                     it.getString(R.string.numerical_memory) to
-                            arrayListOf(),
+                            arrayListOf(
+                                    it.getString(R.string.number_find),
+                                    it.getString(R.string.number_map)
+                            ),
                     it.getString(R.string.procedural_memory) to
                             arrayListOf(),
                     it.getString(R.string.imagination_power) to
@@ -102,11 +109,13 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                 intent.putExtra(IndexedItemActivity.MAP_MODE, IndexedItemAdapter.TEXT)
                                 activity.startActivity(intent)
                             }
+
                             1 -> {
                                 val intent = Intent(context, QuestionActivity::class.java)
                                 intent.putExtra(QuestionActivity.QUESTION, getString(R.string.party_question))
                                 activity.startActivity(intent)
                             }
+
                             2 -> {
                                 val intent = Intent(context, QuestionActivity::class.java)
                                 intent.putExtra(QuestionActivity.QUESTION, getString(R.string.celebrity_question))
@@ -121,6 +130,44 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                 activity.startActivity(intent)
                             }
 
+                            4 -> activity.startActivity(Intent(context, FindActivity::class.java))
+
+                            5 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.memory_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+
+                            6 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.invert_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+
+                            7 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.flower_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+                        }
+                    }
+
+                    2 -> {
+                        when (i) {
+                            0 -> {
+                                val intent = Intent(context, DuplicateActivity::class.java)
+                                intent.putExtra(DuplicateActivity.DUPLICATE_MODE, DuplicateAdapter.NUMBER)
+                                activity.startActivity(intent)
+                            }
+
+                            1 -> {
+                                val intent = Intent(context, IndexedItemActivity::class.java)
+                                intent.putExtra(IndexedItemActivity.MAP_MODE, IndexedItemAdapter.NUMBER)
+                                activity.startActivity(intent)
+                            }
                         }
                     }
                 }
