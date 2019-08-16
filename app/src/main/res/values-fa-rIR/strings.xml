@@ -116,4 +116,24 @@
     <string name="sequence">دنباله</string>
     <string name="answer_math">به سوالات زیر پاسخ دهید</string>
     <string name="number_plat">شماره پلاک</string>
+    <string name="experience">تجربه</string>
+    <string name="experience_question">در برابر هر کلمه بیان شده یک تجربه و یا خاطره را با جزییات ان به یاد بیاورید و مرور کنید \nسانحه \n\nسکته \n\nزیارت \n\nرستوران\n</string>
+    <string name="good_deed">عمل خوب</string>
+    <string name="good_mem">خاطره‌ی خوب</string>
+    <string name="image_detail">جزییات عکس</string>
+    <string name="marriage">ازدواج</string>
+    <string name="politician">سیاست‌مدار</string>
+    <string name="proverb">ضرب‌المثل</string>
+    <string name="restaurant">رستوران</string>
+    <string name="sentence">جمله</string>
+    <string name="restaurant_question">" در صورتی که خانم هستید مراحل درست کردن مربای بالنگ و در صورتی که اقا هستید مراحل چک فنی ماشین را بیان کنید "</string>
+    <string name="good_mem_question">یک واقعه خوب را تداعی کیند و جرییاتش را  برای واقعه خوب یان کنید</string>
+    <string name="good_deed_question">"چند کار مثبت و اخلاقی که خود و دیگران در یک ماه اخیر انجام داده اند را با جزییاتش مرور کنید"</string>
+    <string name="sentence_question">با هریک از کلمات ریر یک جمله معنی دار بسازید که خاطره/ روند و زویدادی را برای شما تداعی کند \nارامش \nعقاب\nخطا \nارزش\n</string>
+    <string name="flower_question_2">نام سه گل که در اسامی دخترانه دیده میشود بیاورید</string>
+    <string name="proverb_sentence">"پنج ضرب المثل را که در زبان عامیانه زیاد استفاده میشود بیان کنید "</string>
+    <string name="politician_question">نام چهار رهبر سیاسی امریکا را بیاورید</string>
+    <string name="important_events_question">"نام دو رویداد را که در یک ماه اخیر / یکسال گذشته  و 5 سال گذاشته  اتفاق افتاده است را لیست کنید و جزییات ان را بیان کنید "</string>
+    <string name="marriage_question">"میخواهید مراسم ازدواج دختر و یا پسر خود را برگزار کنید . روند کامل برنامه ها و جزییات ان به تفضیل بیان کنید "</string>
+    <string name="image_detail_question">۱۰ تفاوت در عکس‌‌ زیر مشخص کنید</string>
 </resources>

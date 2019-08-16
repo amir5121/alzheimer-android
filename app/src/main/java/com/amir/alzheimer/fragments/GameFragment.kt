@@ -65,7 +65,20 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                     it.getString(R.string.number_plat)
                             ),
                     it.getString(R.string.procedural_memory) to
-                            arrayListOf(),
+                            arrayListOf(
+                                    it.getString(R.string.experience),
+                                    it.getString(R.string.restaurant),
+                                    it.getString(R.string.good_mem),
+                                    it.getString(R.string.good_deed),
+                                    it.getString(R.string.sentence),
+                                    it.getString(R.string.flower),
+                                    it.getString(R.string.proverb),
+                                    it.getString(R.string.politician),
+                                    it.getString(R.string.important_events),
+                                    it.getString(R.string.marriage),
+                                    it.getString(R.string.image_detail)
+
+                            ),
                     it.getString(R.string.imagination_power) to
                             arrayListOf(),
                     it.getString(R.string.memory_testing_1) to
@@ -167,7 +180,6 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                             }
                         }
                     }
-
                     2 -> {
                         when (i) {
                             0 -> {
@@ -241,6 +253,73 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                 activity.startActivity(intent)
                             }
 
+                        }
+                    }
+                    3 -> {
+                        when (i) {
+                            0 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.experience_question))
+                                activity.startActivity(intent)
+                            }
+                            1 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.restaurant_question))
+                                activity.startActivity(intent)
+                            }
+                            2 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.good_mem_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+                            3 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.good_deed_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+                            4 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.sentence_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+                            5 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.flower_question_2))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+                            6 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.proverb_sentence))
+                                activity.startActivity(intent)
+                            }
+                            7 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.politician_question))
+                                activity.startActivity(intent)
+                            }
+                            8 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.important_events_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+                            9 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.marriage_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+                            10 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.image_detail_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                intent.putExtra(QuestionActivity.HAS_IMAGE, true)
+                                activity.startActivity(intent)
+                            }
                         }
                     }
                 }

@@ -1,8 +1,8 @@
 package com.amir.alzheimer.activities.games
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.amir.alzheimer.R
 import kotlinx.android.synthetic.main.activity_question.*
 
@@ -24,9 +24,14 @@ class QuestionActivity : AppCompatActivity(), View.OnClickListener {
 
         activity_question_answer.visibility = if (hasAnswer) View.VISIBLE else View.GONE
 
+        if (intent.getBooleanExtra(HAS_IMAGE, false)) {
+            activity_question_image.visibility = View.VISIBLE
+        }
+
     }
 
     companion object {
+        const val HAS_IMAGE = "HAS_IMAGE"
         const val QUESTION = "QUESTION"
         const val HAS_ANSWER = "HAS_ANSWER"
     }

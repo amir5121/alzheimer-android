@@ -124,4 +124,24 @@
     <string name="sequence">Sequence</string>
     <string name="answer_math">Answer these math questions</string>
     <string name="number_plat">Number Plate</string>
+    <string name="experience">experience</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="good_mem">Good Memory</string>
+    <string name="good_deed">Good Deed</string>
+    <string name="sentence">Sentence</string>
+    <string name="proverb">Proverb</string>
+    <string name="politician">Politician</string>
+    <string name="marriage">Marriage</string>
+    <string name="image_detail">Image Detail</string>
+    <string name="experience_question">no fuck given</string>
+    <string name="restaurant_question">---</string>
+    <string name="good_mem_question">---</string>
+    <string name="good_deed_question">---</string>
+    <string name="sentence_question">----</string>
+    <string name="flower_question_2">---</string>
+    <string name="proverb_sentence">---</string>
+    <string name="politician_question">---</string>
+    <string name="important_events_question">---</string>
+    <string name="marriage_question">---</string>
+    <string name="image_detail_question">---</string>
 </resources>

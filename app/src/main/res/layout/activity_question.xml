@@ -38,6 +38,13 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <ImageView
+        android:id="@+id/activity_question_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image"
+        android:src="@drawable/diff" />
+
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
