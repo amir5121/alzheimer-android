@@ -115,4 +115,5 @@
     <string name="fruits">میوه‌ها</string>
     <string name="sequence">دنباله</string>
     <string name="answer_math">به سوالات زیر پاسخ دهید</string>
+    <string name="number_plat">شماره پلاک</string>
 </resources>

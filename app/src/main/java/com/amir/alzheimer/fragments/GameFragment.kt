@@ -60,7 +60,9 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                     it.getString(R.string.even_numbers),
                                     it.getString(R.string.one_minute),
                                     it.getString(R.string.fruits),
-                                    it.getString(R.string.sequence)
+                                    it.getString(R.string.sequence),
+                                    it.getString(R.string.evaluate),
+                                    it.getString(R.string.number_plat)
                             ),
                     it.getString(R.string.procedural_memory) to
                             arrayListOf(),
@@ -225,6 +227,17 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                             10 -> {
                                 val intent = Intent(context, MathQuestionActivity::class.java)
                                 intent.putExtra(MathQuestionActivity.MATH_MODE, MathQuestionAdapter.SEQUENCE)
+                                activity.startActivity(intent)
+                            }
+
+                            11 -> {
+                                val intent = Intent(context, MathQuestionActivity::class.java)
+                                intent.putExtra(MathQuestionActivity.MATH_MODE, MathQuestionAdapter.EXPRESSION_2)
+                                activity.startActivity(intent)
+                            }
+                            12 -> {
+                                val intent = Intent(context, WordMapActivity::class.java)
+                                intent.putExtra(WordMapActivity.MAP_MODE, WordMapActivity.NUMBER_PLATE)
                                 activity.startActivity(intent)
                             }
 

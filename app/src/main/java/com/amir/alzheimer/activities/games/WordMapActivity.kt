@@ -2,8 +2,10 @@ package com.amir.alzheimer.activities.games
 
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.amir.alzheimer.R
 import com.amir.alzheimer.base.BaseActivity
@@ -12,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_word_map.*
 import kotlinx.android.synthetic.main.include_score_timer.*
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.math.sqrt
 
 
 class WordMapActivity : BaseActivity(), View.OnClickListener, AdapterView.OnItemClickListener {
@@ -23,6 +24,7 @@ class WordMapActivity : BaseActivity(), View.OnClickListener, AdapterView.OnItem
     private var toRememberSize = 0
     private var lastClickedView: TextView? = null
     private var count: Int = 0
+    private var mode = WORD
     private var itemFound: Int = 0
     private var pauseCounter: Boolean = true
 
@@ -41,14 +43,20 @@ class WordMapActivity : BaseActivity(), View.OnClickListener, AdapterView.OnItem
             }
         }, 1000, 1000)
 
+        mode = intent.getIntExtra(MAP_MODE, WORD)
+        if (mode == NUMBER_PLATE)
+            word_map_list_left.visibility = View.VISIBLE
+
         updateBoard()
-
-
     }
 
     override fun onClick(v: View?) {
         when (v) {
             word_map_button_ready -> {
+                if (mode == NUMBER_PLATE) {
+                    finish()
+                    return
+                }
                 word_map_button_ready.visibility = View.GONE
                 if (itemFound > 0) {
                     word_map_list_left.visibility = View.GONE
@@ -98,9 +106,13 @@ class WordMapActivity : BaseActivity(), View.OnClickListener, AdapterView.OnItem
 
 
     private fun updateBoard() {
+        toRemember = if (mode == WORD)
+            Constants.TO_REMEMBER_SOURCE.slice(0 until 10)
+        else
+            listOf("بیرجند", "زنجان", "سمنان", "شیراز", "قم", "۵۲", "۸۷", "۸۶", "۶۳", "۱۶")
+        toRememberSize = toRemember.size / 2
+
         if (word_map_list_left.visibility == View.GONE) {
-            toRemember = Constants.TO_REMEMBER_SOURCE.slice(0 until 10)
-            toRememberSize = toRemember.size / 2
             word_map_button_ready.visibility = View.VISIBLE
             word_map_button_ready.text = getString(R.string.ready)
             val matches: ArrayList<String> = ArrayList()
@@ -126,6 +138,9 @@ class WordMapActivity : BaseActivity(), View.OnClickListener, AdapterView.OnItem
 
     companion object {
         const val TAG: String = "WordMapActivity"
+        const val MAP_MODE: String = "MAP_MODE"
+        const val WORD = 1
+        const val NUMBER_PLATE = 2
     }
 
 }

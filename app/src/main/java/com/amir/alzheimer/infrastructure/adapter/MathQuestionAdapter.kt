@@ -20,11 +20,16 @@ class MathQuestionAdapter(context: Context, val mode: Int) : BaseAdapter() {
 
     init {
         val questionCount = 4
-        if (mode == EXPRESSION) {
-            items = (1..questionCount).map { Constants.getExpression(4) }
-            answers = items.map { Expressions().eval(it).toDouble() } as ArrayList<Double>
-        } else {
-            items = (1..questionCount).map {
+        when (mode) {
+            EXPRESSION -> {
+                items = (1..questionCount).map { Constants.getExpression(3, 1..10) }
+                answers = items.map { Expressions().eval(it).toDouble() } as ArrayList<Double>
+            }
+            EXPRESSION_2 -> {
+                items = (1..questionCount + 1).map { Constants.getExpression(4, 1..100) }
+                answers = items.map { Expressions().eval(it).toDouble() } as ArrayList<Double>
+            }
+            else -> items = (1..questionCount).map {
                 val start = (1..9).random()
                 val operator = Constants.OPERATORS_SEQUENCE.random()
 
@@ -75,6 +80,7 @@ class MathQuestionAdapter(context: Context, val mode: Int) : BaseAdapter() {
     companion object {
         const val SEQUENCE = 0
         const val EXPRESSION = 1
+        const val EXPRESSION_2 = 2
     }
 
 }

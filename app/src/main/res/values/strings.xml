@@ -123,4 +123,5 @@
     <string name="fruits">Fruits</string>
     <string name="sequence">Sequence</string>
     <string name="answer_math">Answer these math questions</string>
+    <string name="number_plat">Number Plate</string>
 </resources>

@@ -18,16 +18,16 @@ object Constants {
 
     val TO_REMEMBER_NUMBER: List<String> = (0..999).shuffled().map { it.toString() }
 
-    val OPERATORS = listOf("*", "/", "+", "-", "+", "-", "+", "-", "+", "-")
+    private val OPERATORS = listOf("*", "/", "+", "-", "+", "-", "+", "-", "+", "-")
     val OPERATORS_SEQUENCE = listOf("*", "+", "-")
-    private val NUMBERS = (1..10).toList()
 
-    fun getExpression(length: Int): String {
+
+    fun getExpression(length: Int, numbers: IntRange): String {
         var result = ""
         for (i in 0..length) {
-            result += "${NUMBERS.random()}${OPERATORS.random()}"
+            result += " ${numbers.random()} ${OPERATORS.random()}"
         }
-        result += NUMBERS.random()
+        result += " ${numbers.random()}"
         return result
     }
 }
