@@ -4,6 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
+        android:id="@+id/help_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/answer_math"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
     <com.amir.alzheimer.infrastructure.views.AlzhimerButton
         android:id="@+id/activity_math_question_button_answer"
         style="@style/Widget.AppCompat.Button.Colored"
@@ -19,6 +31,7 @@
         android:id="@+id/activity_math_question_list"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_below="@id/help_text"
         android:layout_above="@id/activity_math_question_button_answer"
         android:layout_margin="15dp" />
 

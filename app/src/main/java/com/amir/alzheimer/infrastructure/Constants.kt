@@ -18,7 +18,8 @@ object Constants {
 
     val TO_REMEMBER_NUMBER: List<String> = (0..999).shuffled().map { it.toString() }
 
-    private val OPERATORS = listOf("*", "/", "+", "-", "+", "-", "+", "-", "+", "-")
+    val OPERATORS = listOf("*", "/", "+", "-", "+", "-", "+", "-", "+", "-")
+    val OPERATORS_SEQUENCE = listOf("*", "+", "-")
     private val NUMBERS = (1..10).toList()
 
     fun getExpression(length: Int): String {

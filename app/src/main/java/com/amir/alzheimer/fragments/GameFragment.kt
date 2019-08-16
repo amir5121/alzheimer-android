@@ -14,6 +14,7 @@ import com.amir.alzheimer.base.BaseFragment
 import com.amir.alzheimer.infrastructure.adapter.DuplicateAdapter
 import com.amir.alzheimer.infrastructure.adapter.FindAdapter
 import com.amir.alzheimer.infrastructure.adapter.IndexedItemAdapter
+import com.amir.alzheimer.infrastructure.adapter.MathQuestionAdapter
 import kotlinx.android.synthetic.main.game_fragment.view.*
 
 class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
@@ -58,7 +59,8 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                     it.getString(R.string.evaluate),
                                     it.getString(R.string.even_numbers),
                                     it.getString(R.string.one_minute),
-                                    it.getString(R.string.fruits)
+                                    it.getString(R.string.fruits),
+                                    it.getString(R.string.sequence)
                             ),
                     it.getString(R.string.procedural_memory) to
                             arrayListOf(),
@@ -217,6 +219,12 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                             9 -> {
                                 val intent = Intent(context, IndexedItemActivity::class.java)
                                 intent.putExtra(IndexedItemActivity.MAP_MODE, IndexedItemAdapter.FRUITS)
+                                activity.startActivity(intent)
+                            }
+
+                            10 -> {
+                                val intent = Intent(context, MathQuestionActivity::class.java)
+                                intent.putExtra(MathQuestionActivity.MATH_MODE, MathQuestionAdapter.SEQUENCE)
                                 activity.startActivity(intent)
                             }
 

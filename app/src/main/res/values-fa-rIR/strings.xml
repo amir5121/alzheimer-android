@@ -113,4 +113,6 @@
     <string name="one_minute">یک دقیقه</string>
     <string name="wait_one_min">یک دقیقه صبر کنید و جمع اعداد را ثبت کنید</string>
     <string name="fruits">میوه‌ها</string>
+    <string name="sequence">دنباله</string>
+    <string name="answer_math">به سوالات زیر پاسخ دهید</string>
 </resources>

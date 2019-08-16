@@ -7,7 +7,8 @@
         android:id="@+id/math_expression_item_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:layout_marginTop="7dp"
+        android:padding="7dp"
         android:textAlignment="center"
         android:textSize="23sp" />
 
@@ -15,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/math_expression_item_text"
-        android:layout_margin="15dp"
+        android:layout_margin="7dp"
         android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -30,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="number"
-                android:textSize="17sp" />
+                android:textSize="23sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,7 +42,8 @@
             android:layout_weight="2"
             android:layoutDirection="ltr"
             android:textAlignment="center"
-            android:textSize="23sp"
+            android:textColor="@color/green"
+            android:textSize="27sp"
             android:visibility="gone" />
 
     </LinearLayout>
