@@ -136,4 +136,6 @@
     <string name="important_events_question">"نام دو رویداد را که در یک ماه اخیر / یکسال گذشته  و 5 سال گذاشته  اتفاق افتاده است را لیست کنید و جزییات ان را بیان کنید "</string>
     <string name="marriage_question">"میخواهید مراسم ازدواج دختر و یا پسر خود را برگزار کنید . روند کامل برنامه ها و جزییات ان به تفضیل بیان کنید "</string>
     <string name="image_detail_question">۱۰ تفاوت در عکس‌‌ زیر مشخص کنید</string>
+    <string name="multi_memory_question">بعد از دیدن هر تصویر در وصف ان جمله ای که خاطره زیبا را تداعی میکند بیان کنید</string>
+    <string name="multi_memory">خاطره‌های خوب</string>
 </resources>

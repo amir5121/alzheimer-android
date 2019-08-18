@@ -80,7 +80,9 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
 
                             ),
                     it.getString(R.string.imagination_power) to
-                            arrayListOf(),
+                            arrayListOf(
+                                    getString(R.string.multi_memory)
+                            ),
                     it.getString(R.string.memory_testing_1) to
                             arrayListOf(),
                     it.getString(R.string.memory_testing_2) to
@@ -320,6 +322,11 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                 intent.putExtra(QuestionActivity.HAS_IMAGE, true)
                                 activity.startActivity(intent)
                             }
+                        }
+                    }
+                    4 -> {
+                        when (i) {
+                            0 -> activity.startActivity(Intent(context, MultiQuestionActivity::class.java))
                         }
                     }
                 }

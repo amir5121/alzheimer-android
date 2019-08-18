@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".activities.games.MultiQuestionActivity">
+
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
+        android:id="@+id/activity_multi_item_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="15dp"
+        android:background="@color/colorAccent"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:visibility="invisible" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:hint="@string/answer"
+        android:padding="7dp">
+
+        <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
+            android:id="@+id/activity_question_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/activity_multi_item_question_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/text"
+        android:layout_below="@id/activity_multi_item_question"
+        android:contentDescription="@string/image"
+        android:scaleType="fitCenter"
+        android:src="@drawable/duplicate_035" />
+
+</RelativeLayout>

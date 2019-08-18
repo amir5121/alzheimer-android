@@ -45,13 +45,13 @@ class PeopleAdapter(context: Context?, private var peoples: List<String>) : Base
             viewHolder = convertView.tag as PeopleViewHolder
         }
 
-        viewHolder.textView!!.text = peoples[position]
+        viewHolder.textView.text = peoples[position]
 
         return convertView
     }
 
 
     internal inner class PeopleViewHolder {
-        var textView: TextView? = null
+        lateinit var textView: TextView
     }
 }

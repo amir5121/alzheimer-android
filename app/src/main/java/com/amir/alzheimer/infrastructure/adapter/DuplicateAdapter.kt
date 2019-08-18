@@ -1,7 +1,6 @@
 package com.amir.alzheimer.infrastructure.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import android.widget.BaseAdapter
 import com.amir.alzheimer.R
 import com.amir.alzheimer.infrastructure.Constants
 import com.amir.alzheimer.infrastructure.dto.DuplicateItem
-import kotlinx.android.synthetic.main.duplicate_activity_image_vire.view.*
+import kotlinx.android.synthetic.main.duplicate_activity_image_view.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -43,12 +42,9 @@ class DuplicateAdapter(context: Context, private val hardness: Int, val mode: In
                                             context.packageName)
                                     ,
                                     arrayOf(firstIndex, secondIndex)
-
                             )
                         else
-                            DuplicateItem(i as String, arrayOf(firstIndex, secondIndex)
-
-                            )
+                            DuplicateItem(i as String, arrayOf(firstIndex, secondIndex))
                 )
             }
         }
@@ -58,7 +54,7 @@ class DuplicateAdapter(context: Context, private val hardness: Int, val mode: In
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val gridItem: View = convertView
-                ?: inflater.inflate(R.layout.duplicate_activity_image_vire, parent, false)
+                ?: inflater.inflate(R.layout.duplicate_activity_image_view, parent, false)
 
 
         val duplicateItem = getItemByIndex(position)
@@ -103,7 +99,6 @@ class DuplicateAdapter(context: Context, private val hardness: Int, val mode: In
     }
 
     companion object {
-        private const val TAG = "DuplicateAdapter"
         private const val ALL_IMAGES_COUNT = 50
         const val TEXT = 0
         const val IMAGE = 1

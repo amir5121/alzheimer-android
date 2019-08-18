@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
+        android:id="@+id/activity_multi_item_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="15dp"
+        android:background="@color/colorAccent"
+        android:padding="15dp"
+        android:text="@string/multi_memory_question"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+
+    <com.amir.alzheimer.infrastructure.views.AlzhimerButton
+        android:id="@+id/activity_multi_item_button"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
+        android:background="#0D47A1"
+        android:padding="7dp"
+        android:text="@string/next"
+        android:textColor="@color/white" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/activity_multi_question_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/activity_multi_item_button"
+        android:layout_below="@id/activity_multi_item_question"
+        android:layout_margin="15dp" />
+
+    <me.relex.circleindicator.CircleIndicator
+        android:id="@+id/activity_multi_question_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/activity_multi_question_viewpager"
+        android:padding="10dp" />
+
+
+</RelativeLayout>
