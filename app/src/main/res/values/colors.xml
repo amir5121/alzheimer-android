@@ -6,6 +6,7 @@
     <color name="colorAccent">#ffab40</color>
     <color name="red">#ff5252</color>
     <color name="green">#33691e</color>
+    <color name="green_lighter">#81C784</color>
     <color name="white">#FFFFFF</color>
     <color name="grey">#424242</color>
     <color name="divider">#dcdcdc</color>
@@ -13,5 +14,6 @@
     <color name="mdtp_accent_color_dark">@color/colorPrimaryDark</color>
     <color name="solving_color">#ffa726</color>
     <color name="light_grey">#455A64</color>
+    <color name="gray">#CFD8DC</color>
 
 </resources>

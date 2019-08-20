@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.amir.alzheimer.infrastructure.views.AlzhimerButton
+        android:id="@+id/activity_occurrence_button_ready"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
+        android:background="#0D47A1"
+        android:padding="7dp"
+        android:text="@string/ready"
+        android:textColor="@color/white" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/activity_occurrence_sum_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/activity_occurrence_button_ready"
+        android:hint="@string/sum_of_items"
+        android:inputType="textPhonetic"
+        android:visibility="gone">
+
+        <com.amir.alzheimer.infrastructure.views.AlzhimerInputEditField
+            android:id="@+id/activity_indexed_image_sum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="17sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
+        android:id="@+id/activity_occurrence_help_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/count_occurrences"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
+    <GridView
+        android:id="@+id/activity_occurrence_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/activity_occurrence_sum_container"
+        android:layout_below="@id/activity_occurrence_help_text"
+        android:layout_margin="15dp" />
+
+
+</RelativeLayout>

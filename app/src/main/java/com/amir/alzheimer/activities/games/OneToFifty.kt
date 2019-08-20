@@ -30,10 +30,12 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
 
         activity_number_game_button_next_level.setOnClickListener(this)
         mode = intent.getIntExtra(MODE, COUNT_UP)
+        count = intent.getIntExtra(COUNT, count)
         when (mode) {
             COUNT_DOWN -> activity_one_to_fifty_help_text.text = getString(R.string.count_down)
             COUNT_2_UP -> activity_one_to_fifty_help_text.text = getString(R.string.count_up_2)
             COUNT_2_DOWN -> activity_one_to_fifty_help_text.text = getString(R.string.count_down_2)
+            COUNT_4_UP -> activity_one_to_fifty_help_text.text = getString(R.string.count_up_4)
         }
         if (intent.getIntExtra(HARDNESS_INTENT, hardnessLevel) != 0) {
             activity_number_game_level.visibility = View.GONE
@@ -67,6 +69,7 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
                     COUNT_UP -> oneToMid
                     COUNT_DOWN -> midToHardness
                     COUNT_2_UP -> (1..mid * 2 step 2).shuffled() as MutableList<Int>
+                    COUNT_4_UP -> (1..mid * 4 step 4).shuffled() as MutableList<Int>
                     COUNT_2_DOWN -> (mid * 2 + 1..hardnessLevels[hardnessLevel] * 2 step 2).shuffled().toMutableList()
                     else -> oneToMid
                 }
@@ -75,6 +78,7 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
                     COUNT_UP -> midToHardness
                     COUNT_DOWN -> oneToMid
                     COUNT_2_UP -> (mid * 2 + 1..hardnessLevels[hardnessLevel] * 2 step 2).shuffled().toMutableList()
+                    COUNT_4_UP -> (mid * 4 + 1..hardnessLevels[hardnessLevel] * 4 step 4).shuffled().toMutableList()
                     COUNT_2_DOWN -> (1..mid * 2 step 2).shuffled() as MutableList<Int>
                     else -> midToHardness
                 }
@@ -95,7 +99,7 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
             COUNT_DOWN -> lastClick = hardnessLevels[hardnessLevel] + 1
             COUNT_2_UP -> lastClick = -1
             COUNT_2_DOWN -> lastClick = hardnessLevels[hardnessLevel] * 2 + 1
-
+            COUNT_4_UP -> lastClick = -3
         }
 
     }
@@ -111,14 +115,16 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
             is Button -> {
                 val clickedNext = view.text.toString().toInt() == lastClick + 1
                 val clickedNext2 = view.text.toString().toInt() == lastClick + 2
+                val clickedNext4 = view.text.toString().toInt() == lastClick + 4
                 val clickedBefore2 = view.text.toString().toInt() == lastClick - 2
                 val clickedBefore = view.text.toString().toInt() == lastClick - 1
-                if (clickedNext || clickedBefore || clickedNext2 || clickedBefore2) {
+                if (clickedNext || clickedBefore || clickedNext2 || clickedBefore2 || clickedNext4) {
                     pauseCounter = false
                     when {
                         clickedNext -> lastClick++
                         clickedBefore -> lastClick--
                         clickedNext2 -> lastClick += 2
+                        clickedNext4 -> lastClick += 4
                         clickedBefore2 -> lastClick -= 2
                     }
                     if (secondHalf.isNotEmpty())
@@ -139,9 +145,11 @@ class OneToFifty : BaseActivity(), View.OnClickListener {
 
 
     companion object {
+        const val COUNT = "COUNT"
         const val COUNT_UP = 0
         const val COUNT_DOWN = 2
         const val COUNT_2_UP = 1
+        const val COUNT_4_UP = 5
         const val COUNT_2_DOWN = 12
         const val HARDNESS_INTENT = "HARDNESS_INTENT"
         const val MODE = "MODE"

@@ -163,4 +163,22 @@
     <string name="short_story">Short story</string>
     <string name="memory_question_3">----</string>
     <string name="dream_question">---</string>
+    <string name="super_market">Super market</string>
+    <string name="super_market_question">----</string>
+    <string name="chicken">Chicken</string>
+    <string name="chicken_question">---</string>
+    <string name="occurrence_count">Occurrence Count</string>
+    <string name="count_occurrences">Count Occurrences of numbers and hit ready</string>
+    <string name="more_than_one_occurrence">Which had more than one more occurrence</string>
+    <string name="count_up_4">Count up with steps of four</string>
+    <string name="count_up_4_title">Count Up 4</string>
+    <string name="gazelle">Gazelle</string>
+    <string name="drum">Drum</string>
+    <string name="cherry">Cherry</string>
+    <string name="red">Red</string>
+    <string name="ax">Ax</string>
+    <string name="radio">Radio</string>
+    <string name="cinnamon">Cinnamon</string>
+    <string name="memorize_the_pattern">Memorize the Pattern and recreate it</string>
+    <string name="pattern">Pattern</string>
 </resources>

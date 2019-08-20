@@ -140,7 +140,7 @@
     <string name="multi_memory">خاطره‌های خوب</string>
     <string name="poem_question">"یکی از اشعار مورد علاقه خود را از اول تا اخر از حفظ بخوانید "</string>
     <string name="poem">شعر</string>
-    <string name="deer">آهو</string>
+    <string name="deer">گوزن</string>
     <string name="face">صورت</string>
     <string name="horse">اسب</string>
     <string name="imagine">تصورکن</string>
@@ -155,4 +155,22 @@
     <string name="short_story">داستان کوتاه</string>
     <string name="memory_question_3">"لیستی از کسانی که خاطره خوبی از انها دارید را تهیه کنید و برای هر یک یک شاخص از انواع گلها  به صورت برچسب بگذارید و به ذهن بیاورید "</string>
     <string name="dream_question">"یکی از رویاهای خوب و بد خود را از اول تا اخربا ذکر جزییاتش  بیان کنید . "</string>
+    <string name="super_market">سوپرمارکت</string>
+    <string name="super_market_question">"به یک سوپر مارکت بزرگ میروید . از هر بخش چه چیزی بر میدارید و برای چه چیزی نیاز دارید . "</string>
+    <string name="chicken">مرغ</string>
+    <string name="chicken_question">"لیستی از غذاهایی که با مرغ تهیه میشود و مراحل ان تهیه کنید. در پایان خوشمزه ترین ان را با یک خاطره تداعی کنید "</string>
+    <string name="ax">تبر</string>
+    <string name="cherry">آلبالو</string>
+    <string name="cinnamon">دارچین</string>
+    <string name="count_occurrences">تعداد تکرار شماره‌ها رو بشمارید و  به صفحه‌ی بعد بروید</string>
+    <string name="count_up_4">چهارتا چهار تا به بالا بشمارید</string>
+    <string name="count_up_4_title">چهارتاچهارتا</string>
+    <string name="drum">طبل</string>
+    <string name="gazelle">آهو</string>
+    <string name="more_than_one_occurrence">چنتا بیشتر از یک بار تکرار شدند</string>
+    <string name="occurrence_count">تعداد تکرار</string>
+    <string name="radio">رادیو</string>
+    <string name="red">قرمز</string>
+    <string name="memorize_the_pattern">این الگو را به خاطر بسپارید و در صفحه‌ی بعد بازسازی کنید</string>
+    <string name="pattern">الگو</string>
 </resources>

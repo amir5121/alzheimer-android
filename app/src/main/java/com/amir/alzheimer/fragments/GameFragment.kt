@@ -11,10 +11,7 @@ import com.amir.alzheimer.R
 import com.amir.alzheimer.activities.games.*
 import com.amir.alzheimer.androidpuzzlegame.MainActivityPuzzle
 import com.amir.alzheimer.base.BaseFragment
-import com.amir.alzheimer.infrastructure.adapter.DuplicateAdapter
-import com.amir.alzheimer.infrastructure.adapter.FindAdapter
-import com.amir.alzheimer.infrastructure.adapter.IndexedItemAdapter
-import com.amir.alzheimer.infrastructure.adapter.MathQuestionAdapter
+import com.amir.alzheimer.infrastructure.adapter.*
 import kotlinx.android.synthetic.main.game_fragment.view.*
 
 class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
@@ -85,10 +82,22 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                     getString(R.string.poem),
                                     getString(R.string.imagine),
                                     getString(R.string.short_story),
-                                    getString(R.string.memory)
+                                    getString(R.string.memory),
+                                    getString(R.string.super_market),
+                                    getString(R.string.chicken)
                             ),
                     it.getString(R.string.memory_testing_1) to
-                            arrayListOf(),
+                            arrayListOf(
+                                    getString(R.string.occurrence_count),
+                                    getString(R.string.count_up),
+                                    getString(R.string.count_up_4_title),
+                                    getString(R.string.evaluate),
+                                    getString(R.string.occurrence_count),
+                                    it.getString(R.string.sentence),
+                                    it.getString(R.string.image_map),
+                                    it.getString(R.string.image_detail),
+                                    it.getString(R.string.pattern)
+                            ),
                     it.getString(R.string.memory_testing_2) to
                             arrayListOf()
 
@@ -397,8 +406,84 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                 intent.putExtra(QuestionActivity.HAS_ANSWER, false)
                                 activity.startActivity(intent)
                             }
+                            6 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.super_market_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+                            7 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.chicken_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
                         }
 
+                    }
+                    5 -> {
+                        when (i) {
+                            0 -> activity.startActivity(Intent(context, OccurrenceActivity::class.java))
+
+                            1 -> {
+                                val intent = Intent(context, OneToFifty::class.java)
+                                intent.putExtra(OneToFifty.HARDNESS_INTENT, 2)
+                                activity.startActivity(intent)
+                            }
+                            2 -> {
+                                val intent = Intent(context, OneToFifty::class.java)
+                                intent.putExtra(OneToFifty.HARDNESS_INTENT, 2)
+                                intent.putExtra(OneToFifty.MODE, OneToFifty.COUNT_4_UP)
+                                intent.putExtra(OneToFifty.COUNT, 120)
+                                activity.startActivity(intent)
+                            }
+                            3 -> activity.startActivity(Intent(context, MathQuestionActivity::class.java))
+                            4 -> {
+                                val intent = Intent(context, OccurrenceActivity::class.java)
+                                intent.putExtra(OccurrenceActivity.OCCURRENCE_MODE, OccurrenceAdapter.DOUBLE_DIGIT)
+                                activity.startActivity(intent)
+                            }
+
+                            5 -> {
+                                val intent = Intent(context, MultiQuestionActivity::class.java)
+                                val questions = arrayListOf(
+                                        getString(R.string.gazelle),
+                                        getString(R.string.drum),
+                                        getString(R.string.cherry),
+                                        getString(R.string.red),
+                                        getString(R.string.ax),
+                                        getString(R.string.radio),
+                                        getString(R.string.cinnamon)
+                                )
+                                intent.putExtra(MultiQuestionActivity.MULTI_QUESTION, questions)
+                                intent.putExtra(MultiQuestionActivity.VISIBLE_TEXT, true)
+                                intent.putExtra(MultiQuestionActivity.QUESTION, getString(R.string.make_sentence))
+                                intent.putExtra(MultiQuestionActivity.VISIBLE_IMAGE, false)
+                                intent.putExtra(MultiQuestionActivity.ITEM_COUNT, questions.size)
+                                activity.startActivity(intent)
+                            }
+
+                            6 -> activity.startActivity(Intent(context, IndexedItemActivity::class.java))
+
+                            7 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.image_detail_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                intent.putExtra(QuestionActivity.HAS_IMAGE, true)
+                                activity.startActivity(intent)
+                            }
+                            8 -> {
+                                val intent = Intent(context, OccurrenceActivity::class.java)
+                                intent.putExtra(OccurrenceActivity.OCCURRENCE_MODE, OccurrenceAdapter.PATTERN)
+                                activity.startActivity(intent)
+                            }
+
+                        }
+
+                    }
+                    6 -> {
+                        when (i) {
+                        }
                     }
                 }
             }
