@@ -146,4 +146,21 @@
     <string name="image_detail_question">---</string>
     <string name="multi_memory_question">fuck you</string>
     <string name="multi_memory">Some good memory</string>
+    <string name="poem">Sing a poem</string>
+    <string name="poem_question">idc</string>
+    <string name="imagine_word_question">Imagine these words IRL</string>
+    <string name="face">Face</string>
+    <string name="sweet">Sweet</string>
+    <string name="deer">Deer</string>
+    <string name="wise">Wise</string>
+    <string name="horse">Horse</string>
+    <string name="imagine">Imagine</string>
+    <string name="make_sentence">Create a sentence with these words</string>
+    <string name="bald">Bald</string>
+    <string name="oskol">Idiot</string>
+    <string name="fatty">Fatty</string>
+    <string name="weirdo">Weirdo</string>
+    <string name="short_story">Short story</string>
+    <string name="memory_question_3">----</string>
+    <string name="dream_question">---</string>
 </resources>

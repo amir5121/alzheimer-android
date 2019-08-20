@@ -138,4 +138,21 @@
     <string name="image_detail_question">۱۰ تفاوت در عکس‌‌ زیر مشخص کنید</string>
     <string name="multi_memory_question">بعد از دیدن هر تصویر در وصف ان جمله ای که خاطره زیبا را تداعی میکند بیان کنید</string>
     <string name="multi_memory">خاطره‌های خوب</string>
+    <string name="poem_question">"یکی از اشعار مورد علاقه خود را از اول تا اخر از حفظ بخوانید "</string>
+    <string name="poem">شعر</string>
+    <string name="deer">آهو</string>
+    <string name="face">صورت</string>
+    <string name="horse">اسب</string>
+    <string name="imagine">تصورکن</string>
+    <string name="imagine_word_question">"با دیدن هر کلمه یک کلمه تداعی کننده بیاورید که معنای ان را نشان دهد "</string>
+    <string name="sweet">شیرین</string>
+    <string name="wise">باهوش</string>
+    <string name="fatty">خپل</string>
+    <string name="make_sentence">با کلمات زیر داستان‌های کوتاه ختده داری بسازید</string>
+    <string name="oskol">اسکل</string>
+    <string name="weirdo">کج و کوله</string>
+    <string name="bald">کچل</string>
+    <string name="short_story">داستان کوتاه</string>
+    <string name="memory_question_3">"لیستی از کسانی که خاطره خوبی از انها دارید را تهیه کنید و برای هر یک یک شاخص از انواع گلها  به صورت برچسب بگذارید و به ذهن بیاورید "</string>
+    <string name="dream_question">"یکی از رویاهای خوب و بد خود را از اول تا اخربا ذکر جزییاتش  بیان کنید . "</string>
 </resources>

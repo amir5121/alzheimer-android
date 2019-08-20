@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.amir.alzheimer.infrastructure.views.AlzhimerTextView
@@ -41,6 +42,8 @@
     <me.relex.circleindicator.CircleIndicator
         android:id="@+id/activity_multi_question_indicator"
         android:layout_width="match_parent"
+        app:ci_drawable="@color/green"
+        app:ci_drawable_unselected="@color/colorPrimaryDark"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/activity_multi_question_viewpager"
         android:padding="10dp" />

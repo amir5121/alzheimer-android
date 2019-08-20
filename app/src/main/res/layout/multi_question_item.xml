@@ -11,10 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_margin="15dp"
-        android:background="@color/colorAccent"
+        android:textAlignment="center"
         android:padding="15dp"
-        android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textSize="21sp"
         android:visibility="invisible" />
 
     <com.google.android.material.textfield.TextInputLayout

@@ -81,7 +81,11 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                             ),
                     it.getString(R.string.imagination_power) to
                             arrayListOf(
-                                    getString(R.string.multi_memory)
+                                    getString(R.string.multi_memory),
+                                    getString(R.string.poem),
+                                    getString(R.string.imagine),
+                                    getString(R.string.short_story),
+                                    getString(R.string.memory)
                             ),
                     it.getString(R.string.memory_testing_1) to
                             arrayListOf(),
@@ -326,8 +330,75 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                     }
                     4 -> {
                         when (i) {
-                            0 -> activity.startActivity(Intent(context, MultiQuestionActivity::class.java))
+                            0 -> {
+                                val intent = Intent(context, MultiQuestionActivity::class.java)
+                                val images = arrayListOf(
+                                        R.drawable.duplicate_043,
+                                        R.drawable.duplicate_019,
+                                        R.drawable.duplicate_042,
+                                        R.drawable.duplicate_023
+                                )
+                                intent.putExtra(MultiQuestionActivity.MULTI_IMAGES, images)
+                                intent.putExtra(MultiQuestionActivity.VISIBLE_TEXT, false)
+                                intent.putExtra(MultiQuestionActivity.VISIBLE_IMAGE, true)
+                                intent.putExtra(MultiQuestionActivity.QUESTION, getString(R.string.multi_memory_question))
+                                intent.putExtra(MultiQuestionActivity.ITEM_COUNT, images.size)
+                                activity.startActivity(intent)
+                            }
+
+                            1 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.poem_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+
+                            2 -> {
+                                val intent = Intent(context, MultiQuestionActivity::class.java)
+                                val questions = arrayListOf(
+                                        getString(R.string.face),
+                                        getString(R.string.sweet),
+                                        getString(R.string.deer),
+                                        getString(R.string.wise),
+                                        getString(R.string.horse)
+                                )
+                                intent.putExtra(MultiQuestionActivity.MULTI_QUESTION, questions)
+                                intent.putExtra(MultiQuestionActivity.VISIBLE_TEXT, true)
+                                intent.putExtra(MultiQuestionActivity.QUESTION, getString(R.string.imagine_word_question))
+                                intent.putExtra(MultiQuestionActivity.VISIBLE_IMAGE, false)
+                                intent.putExtra(MultiQuestionActivity.ITEM_COUNT, questions.size)
+                                activity.startActivity(intent)
+                            }
+                            3 -> {
+                                val intent = Intent(context, MultiQuestionActivity::class.java)
+                                val questions = arrayListOf(
+                                        getString(R.string.bald),
+                                        getString(R.string.oskol),
+                                        getString(R.string.fatty),
+                                        getString(R.string.weirdo)
+                                )
+                                intent.putExtra(MultiQuestionActivity.MULTI_QUESTION, questions)
+                                intent.putExtra(MultiQuestionActivity.VISIBLE_TEXT, true)
+                                intent.putExtra(MultiQuestionActivity.QUESTION, getString(R.string.make_sentence))
+                                intent.putExtra(MultiQuestionActivity.VISIBLE_IMAGE, false)
+                                intent.putExtra(MultiQuestionActivity.ITEM_COUNT, questions.size)
+                                activity.startActivity(intent)
+                            }
+
+                            4 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.memory_question_3))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
+                            5 -> {
+                                val intent = Intent(context, QuestionActivity::class.java)
+                                intent.putExtra(QuestionActivity.QUESTION, getString(R.string.dream_question))
+                                intent.putExtra(QuestionActivity.HAS_ANSWER, false)
+                                activity.startActivity(intent)
+                            }
                         }
+
                     }
                 }
             }
