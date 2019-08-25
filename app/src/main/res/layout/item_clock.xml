@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:contentDescription="@string/description"
+        android:padding="5dp"
+        android:src="@drawable/clock_blank" />
+
+    <ImageView
+        android:id="@+id/item_clock_big_hand"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:contentDescription="@string/description"
+        android:padding="5dp"
+        android:rotation="270"
+        android:src="@drawable/ic_line_thin" />
+
+    <ImageView
+        android:id="@+id/item_clock_small_hand"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:contentDescription="@string/description"
+        android:padding="5dp"
+        android:rotation="0"
+        android:src="@drawable/ic_line" />
+
+
+</FrameLayout>

@@ -181,4 +181,6 @@
     <string name="cinnamon">Cinnamon</string>
     <string name="memorize_the_pattern">Memorize the Pattern and recreate it</string>
     <string name="pattern">Pattern</string>
+    <string name="clock">Clock</string>
+    <string name="clock_help">Memorise these clocks and hit ready</string>
 </resources>

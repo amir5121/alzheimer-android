@@ -173,4 +173,6 @@
     <string name="red">قرمز</string>
     <string name="memorize_the_pattern">این الگو را به خاطر بسپارید و در صفحه‌ی بعد بازسازی کنید</string>
     <string name="pattern">الگو</string>
+    <string name="clock">ساعت</string>
+    <string name="clock_help">ساعت‌های زیر را به خاطر بسپارید و در صفحه‌ی بعد تکراری را پیدا کنید</string>
 </resources>

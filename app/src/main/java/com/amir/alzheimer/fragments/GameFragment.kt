@@ -96,7 +96,8 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                     it.getString(R.string.sentence),
                                     it.getString(R.string.image_map),
                                     it.getString(R.string.image_detail),
-                                    it.getString(R.string.pattern)
+                                    it.getString(R.string.pattern),
+                                    it.getString(R.string.clock)
                             ),
                     it.getString(R.string.memory_testing_2) to
                             arrayListOf()
@@ -128,7 +129,6 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                 when (pickedDomain) {
                     0 ->
                         when (i) {
-
                             0 -> activity.startActivity(Intent(context, MainActivityPuzzle::class.java))
                             1 -> activity.startActivity(Intent(context, NumberGameActivity::class.java))
                             2 -> activity.startActivity(Intent(context, SquareMatchActivity::class.java))
@@ -424,7 +424,6 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                     5 -> {
                         when (i) {
                             0 -> activity.startActivity(Intent(context, OccurrenceActivity::class.java))
-
                             1 -> {
                                 val intent = Intent(context, OneToFifty::class.java)
                                 intent.putExtra(OneToFifty.HARDNESS_INTENT, 2)
@@ -443,7 +442,6 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                 intent.putExtra(OccurrenceActivity.OCCURRENCE_MODE, OccurrenceAdapter.DOUBLE_DIGIT)
                                 activity.startActivity(intent)
                             }
-
                             5 -> {
                                 val intent = Intent(context, MultiQuestionActivity::class.java)
                                 val questions = arrayListOf(
@@ -462,9 +460,7 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                 intent.putExtra(MultiQuestionActivity.ITEM_COUNT, questions.size)
                                 activity.startActivity(intent)
                             }
-
                             6 -> activity.startActivity(Intent(context, IndexedItemActivity::class.java))
-
                             7 -> {
                                 val intent = Intent(context, QuestionActivity::class.java)
                                 intent.putExtra(QuestionActivity.QUESTION, getString(R.string.image_detail_question))
@@ -476,6 +472,10 @@ class GameFragment : BaseFragment(), AdapterView.OnItemClickListener {
                                 val intent = Intent(context, OccurrenceActivity::class.java)
                                 intent.putExtra(OccurrenceActivity.OCCURRENCE_MODE, OccurrenceAdapter.PATTERN)
                                 activity.startActivity(intent)
+                            }
+
+                            9 -> {
+                                activity.startActivity(Intent(context, ClockActivity::class.java))
                             }
 
                         }

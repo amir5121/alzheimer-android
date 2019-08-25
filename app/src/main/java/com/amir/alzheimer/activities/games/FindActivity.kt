@@ -3,12 +3,12 @@ package com.amir.alzheimer.activities.games
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import androidx.appcompat.app.AppCompatActivity
 import com.amir.alzheimer.R
+import com.amir.alzheimer.base.BaseActivity
 import com.amir.alzheimer.infrastructure.adapter.FindAdapter
 import kotlinx.android.synthetic.main.activity_find.*
 
-class FindActivity : AppCompatActivity(), AdapterView.OnItemClickListener, View.OnClickListener {
+class FindActivity : BaseActivity(), AdapterView.OnItemClickListener, View.OnClickListener {
     private lateinit var adapter: FindAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
